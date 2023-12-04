@@ -12,12 +12,23 @@
             background-color: #F8E71C;
         }
 
-        header,
-        footer {
+        header{
+
             background-color: #3E3E3E;
             color: white;
             text-align: center;
+            padding: 20px;   
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            color: white;
+            width: 100%;
+            background-color: #3E3E3E;
             padding: 20px;
+            text-align: center;
+            
         }
 
         form {
@@ -50,12 +61,7 @@
             border: none;
         }
 
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: #3E3E3E;
-        }
+     
 
         .botonFormulario {
             background-color: white;
@@ -77,6 +83,10 @@
         .botonFormulario:active {
             background-color: rgb(0, 149, 255);
         }
+
+        
+
+
     </style>
 </head>
 
@@ -85,7 +95,7 @@
         <h1>Formulario de Gastos Personales</h1>
     </header>
 
-    <form>
+    <form  action="recuperacion.php" method="get">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
 
