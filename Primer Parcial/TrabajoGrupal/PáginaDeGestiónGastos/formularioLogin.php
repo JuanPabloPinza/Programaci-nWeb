@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Gestor de Gastos Personales</title>
+    <title>Gestor de Gastos Personales - Login</title>
     <style>
         body {
             display: flex;
@@ -14,15 +14,6 @@
             padding: 0;
             background-color: #A5A4A6;
         }
-
-        /*header {
-
-            background-color: #0F0C26;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            border-bottom: 2px solid #131240;
-        }*/
 
         footer {
             margin-top: auto;
@@ -64,18 +55,13 @@
             flex: 1;
             padding: 20px;
             border-radius: 10px;
-            /* Bordes redondeados */
             margin: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            /* Sombra suave */
+            background-color: #ddd;
         }
 
         article {
             background-color: #eee;
-        }
-
-        aside {
-            background-color: #ddd;
         }
 
         section {
@@ -86,7 +72,7 @@
             width: 100%;
         }
 
-        .fondo{
+        .fondo {
 
             max-height: 5vw;
             min-height: 35%;
@@ -94,10 +80,10 @@
             top: 0;
             left: 0px;
             overflow: hidden;
-            z-index: 1;                     
+            z-index: 1;
         }
 
-        .header{
+        .header {
             height: 40%;
             display: flex;
             justify-content: left;
@@ -105,7 +91,7 @@
             height: auto;
         }
 
-        .tema{
+        .tema {
             position: absolute;
             display: flex;
             align-items: center;
@@ -115,69 +101,90 @@
             z-index: 4;
         }
 
-        .tema h1{
+        .tema h1 {
             color: #0F0C26;
             font-size: 2.8vw;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-shadow: 1px 2px 2px black;
         }
-        header{
-            background-color: #0F0C26; 
+
+        header {
+            background-color: #0F0C26;
             color: white;
             text-align: center;
             padding: 20px;
-            border-bottom: 2px solid #131240; 
+            border-bottom: 2px solid #131240;
         }
+
         
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ddd;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #0F0C26;
+        }
+
+        form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        form button {
+            background-color: #3B3C40;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        form button:hover {
+            background-color: #555;
+        }
+
+        #mensajeError {
+            color: red;
+            margin: 10px 0;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
-    <!-- <section>
-        <img src="images/fondo.jpg" class="fondo" width="100%">
-        <header class="header">
-            <section class="tema">
-                <h1>Gestor de Gastos Personales</h1>
-            </section>
-            
-        </header>
-    </section> -->
-
     <header>
         <h1>Gestor de Gastos Personales</h1>
     </header>
+
     
+    <?php
+    
+    if (isset($_GET['error'])) {
+        echo '<h1 id="mensajeError">' . urldecode($_GET['error']) . '</h1>';
+    }
+    ?>
 
-    <nav>
-        <a href="#">Inicio</a>
-        <a href="formulario_registro_gastos.html">Registro de Gastos</a>
-        <a href="#">Reportes Mensuales</a>
-        <a href="formulario.html">Formulario</a> <!-- Enlace al formulario -->
-        <a href="">Registrarse</a>
-        <a href="formularioLogin.php">Iniciar Sesión</a>
-    </nav>
+    
+        <form action="login.php" method="post">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required>
 
-    <main>
-        <article class="portadaAhorro">
-            <img src="images/ahorroPortada.jpeg" width="100%">
-        </article>
-        <article>
-            <section>
-                <h2>Registro de Gastos</h2>
-                <p>Utiliza esta sección para ingresar tus gastos diarios y llevar un registro detallado de tus finanzas
-                    personales.</p>
-            </section>
-            <section>
-                <h2>Consejos Financieros</h2>
-                <p>Encuentra consejos útiles para ahorrar dinero y administrar tus gastos de manera efectiva.</p>
-            </section>
-        </article>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
 
-        <aside>
-            <h3>Calculadora de Gastos</h3>
-            <p>Ingresa tus gastos y utiliza nuestra calculadora para conocer tu presupuesto mensual disponible.</p>
-        </aside>
-    </main>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    
 
     <footer>
         <p>&copy; 2023 Juan Pablo Pinza & Alex Trejo</p>

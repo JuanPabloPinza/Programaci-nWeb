@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gestor de Gastos Personales</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #A5A4A6;
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #0F0C26;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #131240;
+        }
+
+        nav {
+            background-color: #3B3C40;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 2px solid #131240;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background-color: #0F0C26;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid #131240;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ddd;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #0F0C26;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            background-color: #FCFCFC;
+            border: 1px solid #E1E1E1;
+        }
+
+        form button {
+            background-color: #3B3C40;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        form button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Gestor de Gastos Personales</h1>
+    </header>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="#">Registro de Gastos</a>
+        <a href="#">Reportes Mensuales</a>
+        <a href="formulario.html">Formulario</a>
+        <a href="#">Registrarse</a>
+        <a href="formularioLogin.php">Iniciar Sesión</a>
+    </nav>
+
+    <form action="procesar_registro_gastos.php" method="post">
+        <label for="concepto">Concepto:</label>
+        <input type="text" id="concepto" name="concepto" required>
+
+        <label for="monto">Monto:</label>
+        <input type="number" id="monto" name="monto" min="0" step="0.01" required>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <button type="submit">Registrar Gasto</button>
+    </form>
+
+    <footer>
+        <p>&copy; 2023 Juan Pablo Pinza & Alex Trejo</p>
+    </footer>
+
+</body>
+
+</html>
