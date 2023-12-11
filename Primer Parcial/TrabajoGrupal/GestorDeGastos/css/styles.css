@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*Estilos para poder sobreescribir todo*/
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    /*background-color: #ADC5D9;*/
+    font-family: 'Montserrat', sans-serif;
+}
+
+li,
+a,
+button {
+    font-weight: 600;
+    font-size: 16px;
+    color: #0D0D0D;
+    text-decoration: none;
+}
+
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+    width: 100%;
+    background-color: #42C7D9;
+}
+
+
+.logo {
+    cursor: pointer;
+    width: 230px;
+    height: 50px;
+    margin-right: auto;
+    object-fit: cover;
+}
+
+.linksDelNav {
+    list-style: none;
+}
+
+.linksDelNav li {
+    /*Nos sirve para poder poner de forma horizontal los bloques*/
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.linksDelNav li,
+a:hover {
+    color: aquamarine;
+}
+
+.linksDelNav li,
+a {
+    transition: all 0.3s ease 0s;
+}
+
+button {
+    padding: 10px;
+    margin-left: 18px;
+    border-radius: 10px;
+    background-color: #F9C70E;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: #f2cd5e9d;
+}
+
+/*Portada Principal*/
+main {
+    background-color: #9cbeda;
+    /* Lo usamos porque nos queda espacios en blanco al final */
+    min-height: 100vh;
+}
+
+
+.portadaPrincipal {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    height: auto;
+}
+
+.textoPortada {
+    width: 100%;
+    padding-right: 100px;
+    text-align: center;
+
+}
+
+.textoPortada h1 {
+    font-size: 50px;
+    color: #0D0D0D;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.textoPortada p {
+    text-align: center;
+    font-size: italic;
+}
+
+.textoPortada button {
+    margin-left: 0px;
+    margin-top: 50px;
+}
+
+.imagenPortada {
+    width: 100%;
+    text-align: center;
+}
+
+.imagenPortada img {
+    width: 630px;
+}
+
+footer {
+    background-color: #ADC5D9;
+    text-align: center;
+    /* padding: 100px 0; */
+}
+
+
+/* FORMULARIO ESTILOS */
+.linkLogo {
+    margin-right: auto;
+}
+
+.articleFormulario {
+    margin-top: 100px;
+    width: 100%;
+    min-height: 50dvh;
+}
+
+form {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+
+.bodyFormulario {
+    background-color: #9cbeda;
+}
+
+.footerFormulario {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+.logoFormulario {
+    text-align: start;
+    width: 230px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 320px;
+}
+
+
+/* PARA LA TABLA DINÁMICA */
+.sectionTabla {
+    margin-top: 100px;
+}
+
+.tablaDinamica {
+    min-width: 400px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+.tablaDinamica thead tr {
+    background-color: #F9C70E;
+    font-weight: bold;
+}
+
+.tablaDinamica td,
+th {
+    padding: 10px;
+}
+
+.tablaDinamica tr,
+td {
+    border: 1px solid #0D0D0D;
+}
+
+tr:nth-child(even) td:nth-child(even),
+tr:nth-child(odd) td:nth-child(odd) {
+    background: grey;
+}
+
+tr:nth-child(odd) td:nth-child(even),
+tr:nth-child(even) td:nth-child(odd) {
+    background: white;
+}
+
+
+/* FORMULARIO LOGIN ESTILOS */
