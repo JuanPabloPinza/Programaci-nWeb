@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,12 +13,13 @@
 <body>
     <!--Header Menú de Nuestro Proyecto-->
     <header>
-        <a class="linkLogo" href="index.html">
+        <a class="linkLogo" href="index.php">
             <img class="logo" src="images/ExpenseMaster.png" alt="logo">
         </a>
         <nav>
             <ul class="linksDelNav">
                 <li><a target="_blank" href="https://github.com/JuanPabloPinza/ProgramacionWeb">Sobre Nosotros</a></li>
+                
                 <li><a href="#">Estado de Cuenta</a></li>
                 <li><a href="Q&A.html">Q&A</a></li>
             </ul>
@@ -29,7 +31,7 @@
         <!--INICIO DE NUESTRA PÁGINA WEB-->
         <article class="articleFormulario">
             <h1 style="text-align: center;">REGÍSTRATE</h1>
-            <form class="formRegistro" action="index.html" method="post" enctype="multipart/form-data">
+            <form class="formRegistro" action="index.php"  method="post" enctype="multipart/form-data" >
                 <label for="nombre">Nombre:</label><br>
                 <input type="text" id="nombre" name="nombre" placeholder="Ejm. Juan" required><br>
                 <label for="apellido">Apellido:</label><br>
@@ -56,7 +58,7 @@
                     <option value="n/a">Prefiero no decirlo</option>
                 </select><br>
                 <label for="foto">Foto de Perfil: </label><br>
-                <input type="file" id="foto" name="foto" required><br>
+                <input type="file" id="foto" name="foto" accept=".png" required><br>
                 <input type="submit" value="Enviar">
             </form>
         </article>

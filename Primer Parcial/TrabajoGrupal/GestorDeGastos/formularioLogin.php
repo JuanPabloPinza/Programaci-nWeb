@@ -31,7 +31,7 @@
                 <form action="login.php" method="post" class="sectionFormularioLogin__form">
                 <label for="username" class="formLogin">Correo:</label>
                 
-                <input type="text" id="username" name="username" placeholder="Correo" required>
+                <input type="email" id="username" name="username" placeholder="Ejm. user@gmail.com" required>
                 
                 <label for="password" class="formLogin">Contraseña:</label>
                 <input type="password" id="password" name="password" placeholder="Contraseña" required >
