@@ -16,21 +16,25 @@
     <?php
     
     if (isset($_GET['error'])) {
+        echo '<section class="errorWrapper">';
+        
         echo '<h1 id="mensajeError">' . urldecode($_GET['error']) . '</h1>';
-    }
+        echo '</section>';
+        }
     ?>
         <section class="portadaPrincipal">
-            <!-- <section style="text-align: center;">
-                    <img src="ruta/a/tu/imagen-de-usuario.png" alt="Imagen de usuario" style="width: 50px; height: 50px;">
-            </section> -->
+            
             <section class="sectionFormularioLogin" >
+            <section class="imageWrapper">
+                    <img src="images/perfil.png" alt="Imagen de usuario" style="width: 150px; height: auto;" >
+                </section>
                 <form action="login.php" method="post" class="sectionFormularioLogin__form">
                 <label for="username" class="formLogin">Correo:</label>
                 
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" placeholder="Correo" required>
                 
                 <label for="password" class="formLogin">Contraseña:</label>
-                <input type="password" id="password" name="password" required >
+                <input type="password" id="password" name="password" placeholder="Contraseña" required >
                 <br>
                 <button type="submit" >Iniciar Sesión</button>
                 </form>
