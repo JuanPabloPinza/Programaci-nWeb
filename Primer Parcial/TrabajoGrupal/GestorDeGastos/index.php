@@ -34,7 +34,7 @@ if (isset($_POST['nombre'])) {
     <?php
     // Verifica si se ha recibido el nombre del usuario
     
-    if (isset($_POST['nombre'])  ) {
+    if (isset($_POST['nombre'])      ) {
         // Si se recibe el nombre del usuario, muestra el nombre y redirige a otra página
         $_SESSION['nombre'] = htmlspecialchars($_POST['nombre']);
         
