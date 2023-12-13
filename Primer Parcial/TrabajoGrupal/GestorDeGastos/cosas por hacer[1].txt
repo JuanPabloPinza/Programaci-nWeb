@@ -1,0 +1,29 @@
+EL BOTÓN ÚNETE LLEVA A EL FORMULARIO DE REGISTRO, Y UNA VEZ REGISTRADO APARECE {UN MENSAJE DE CONFIRMACIÓN TIPO POP UP.}
+FORMULARIO DE REGISTRO:
+Nombre, Apellido, Teléfono, Dirección, Presupuesto Mensual, Fecha de Nacimiento, Correo Electrónico, Sexo, Foto de Perfil (Archivo). (JP)
+[EL POPUP SE PUEDE HACER SOLO CON JAVASCRIPT]
+
+
+
+MEJORAR LOS COLORES DEL FORMULARIO DE LOGIN Y CREARLE UN PERFIL AL LOGIN CON DATOS QUEMADOS PARA PODER VISUALIZAR. (ALEX)
+
+va a aperecer iniciar sesión, una vez que se inicia sesión, se va a a volver al index pero ahora se podrá visualizar el perfil de usuario, y en perfil de usuario {se va a desplegar una ficha con los datos del usuario en una tabla o normal, (MEJOR: SIMPLEMENTE DESPLEGAR LA FOTO DE PERFIL)}.
+{OPCIONAL: SI NOS ALCANZA EL TIEMPO } (1)
+
+
+UNA SECCIÓN DEL NAV DE ESTADO DE CUENTA:
+El estado de cuenta va a desplegar: Presupuesto total, [SUBTABLA CON EL REGISTRO DE GASTO E INGRESOS (Los ingresos se suman al prespuesto total, pero también se reflejan en TOTAL)], Dinero Disponible. (2)
+
+
+
+EN EL Q&A VAN A IR 3 PREGUNTAS FRECUENTES SOBRE EL TEMA. ¿Cómo ExpenseMaster te ayuda a controlar tus gastos? 
+¿Tiene algún costo usar ExpenseMaster? ¿Cómo abro una cuenta en ExpenseMaster? (1)
+
+
+UNA SECCIÓN DEL NAV DE REGISTRO DE GASTO O INGRESO:
+FORMULARIO: Concepto, Monto, Fecha de gasto. (2)
+
+MODIFICAR EL FOOTER, HACERLO MÁS GRUESO Y PONER LOS CONTACTOS. (1)
+
+
+INFORME Y DIAPOSITIVAS: OBJETIVO, JUSTIFICACIÓN, ALCANCE, PALETA DE COLORES, INTERFAZ, CONCLUSIONES. (2)

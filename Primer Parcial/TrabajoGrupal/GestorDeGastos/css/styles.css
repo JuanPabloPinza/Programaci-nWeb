@@ -144,7 +144,7 @@ form {
     text-align: center;
     justify-content: center;
     align-items: center;
-    padding: 100px;
+    padding: 20px;
 }
 
 .bodyFormulario {
@@ -167,45 +167,32 @@ form {
     margin-right: 320px;
 }
 
-
-/* PARA LA TABLA DINÁMICA */
-.sectionTabla {
-    margin-top: 100px;
-}
-
-.tablaDinamica {
-    min-width: 400px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
-    font-size: 0.9em;
-}
-
-.tablaDinamica thead tr {
-    background-color: #F9C70E;
-    font-weight: bold;
-}
-
-.tablaDinamica td,
-th {
-    padding: 10px;
-}
-
-.tablaDinamica tr,
-td {
-    border: 1px solid #0D0D0D;
-}
-
-tr:nth-child(even) td:nth-child(even),
-tr:nth-child(odd) td:nth-child(odd) {
-    background: grey;
-}
-
-tr:nth-child(odd) td:nth-child(even),
-tr:nth-child(even) td:nth-child(odd) {
-    background: white;
-}
-
-
 /* FORMULARIO LOGIN ESTILOS */
+
+
+/* FORMULARIO REGISTRO ESTILOS */
+
+
+/* ESTILOS Q&A */
+.preguntasYRespuestas{
+
+    border-radius: 20px;
+    background-color: #ADC5D9;
+    margin: 30px 150px;
+    border-style: solid;
+
+}
+
+.PYRH2{
+    border-style: solid;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+    width: 300px;
+    margin-left: 30px;
+    background-color: whitesmoke;
+}
+
+.itemPYR{
+    margin: 40px;
+}

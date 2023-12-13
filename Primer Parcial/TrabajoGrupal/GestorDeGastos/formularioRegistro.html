@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Master</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+
+<body>
+    <!--Header Menú de Nuestro Proyecto-->
+    <header>
+        <a class="linkLogo" href="index.html">
+        <img class="logo" src="images/ExpenseMaster.png" alt="logo">
+        </a>
+        <nav>
+            <ul class="linksDelNav">
+                <li><a target="_blank" href="https://github.com/JuanPabloPinza/ProgramacionWeb">Sobre Nosotros</a></li>
+                <li><a href="#">Estado de Cuenta</a></li>
+                <li><a href="Q&A.html">Q&A</a></li>
+            </ul>
+        </nav>
+        <a class="CTA" href="formularioLogin.php"><button>Inicia Sesión</button></a>
+    </header>
+
+    <main class="mainFormulario">
+        <hr size="8px" color="blue">
+        <article class="articleFormulario">
+            <h1 style="text-align: center;">REGÍSTRATE</h1>
+            <form action="index.html" method="post" enctype="multipart/form-data">
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" id="nombre" name="nombre" placeholder="Ejm. Juan" required><br>
+                <label for="apellido">Apellido:</label><br>
+                <input type="text" id="apellido" name="apellido" placeholder="Ejm. Trejo" required><br>
+                <label for="telefono">Teléfono: </label><br>
+                <label for="telefono">Teléfono (10 dígitos): </label><br>
+                <input type="text" id="telefono" name="telefono" pattern="\d{10}" minlength="10"
+                    placeholder="Ej. 0992273343" required><br>
+                <label for="direccion">Dirección:</label><br>
+                <input type="text" id="direccion" name="direccion" placeholder="Ejm. Sangolquí" required><br>
+                <label for="presupuestoMensual">Presupuesto Mensual (En dólares): </label><br>
+                <input type="text" id="presupuestoMensual" name="presupuestoMensual" pattern="^\d+(\.\d{1,2})?$"
+                    placeholder="Ej. 440.63" required><br>
+                <label for="fechaNacimiento">Fecha de Nacimiento: </label><br>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required><br>
+                <label for="correoElectronico">Correo Electrónico: </label><br>
+                <input type="email" id="correoElectronico" name="correoElectronico" placeholder="Ejm. user@gmail.com"
+                    required><br>
+                <label for="genero">Género: </label><br>
+                <select name="genero" id="genero" required>
+                    <option value="" disabled selected hidden>Selecciona tu género</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="n/a">Prefiero no decirlo</option>
+                </select><br>
+                <label for="foto">Foto de Perfil: </label><br>
+                <input type="file" id="foto" name="foto" required><br>
+                <input type="submit" value="Enviar">
+            </form>
+        </article>
+    </main>
+
+</body>
+
+</html>
