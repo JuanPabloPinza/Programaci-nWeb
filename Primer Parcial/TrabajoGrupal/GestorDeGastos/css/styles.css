@@ -168,6 +168,74 @@ form {
 }
 
 /* FORMULARIO LOGIN ESTILOS */
+.sectionFormularioLogin {
+    
+    
+    align-items: center;
+    
+
+    background-color: #42C7D9;
+}
+
+.sectionFormularioLogin__form{
+
+    border-radius: 20px;
+    background-color: #ADC5D9;
+    margin: 20px auto; /* Ajusta el margen superior e inferior según tus necesidades */
+    border-style: solid;
+    padding: 70px;
+    max-width: 400px;
+    position: relative;
+    height: 360px;
+
+}
+
+.sectionFormularioLogin__form label{
+    margin-bottom: 10px; /* Ajusta el margen inferior de las etiquetas */
+    display: block;
+}
+.sectionFormularioLogin__form input,
+.sectionFormularioLogin__form button {
+   
+    margin-bottom: 15px; /* Ajusta el margen inferior de los campos de entrada y el botón */
+    width: 100%;
+    margin-left: 0px;
+
+
+    
+}
+
+
+
+.sectionFormularioLogin__form button:hover {
+    background-color: #f2cd5e9d;
+}
+
+
+.formLogin {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 50px ;
+    position: relative;
+    
+    
+}
+
+
+.mainLogin {
+    background-color: #42C7D9;
+    /* Lo usamos porque nos queda espacios en blanco al final */
+    min-height: 100vh;
+    max-height: 80vh;
+}
+
+.centerWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Establece la altura del contenedor al 100% de la altura de la ventana gráfica */
+}
 
 
 /* FORMULARIO REGISTRO ESTILOS */
