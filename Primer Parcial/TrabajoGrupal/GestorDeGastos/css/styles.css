@@ -123,21 +123,33 @@ main {
 }
 
 footer {
-    background-color: #ADC5D9;
+    background-color: #42C7D9;
     text-align: center;
-    /* padding: 100px 0; */
+    padding: 25px 0;
 }
 
+.imgIconosFooter{
+    width: 30px; /* Ajusta el tamaño según sea necesario */
+    height: 30px;
+}
 
+.redes-sociales {
+    margin-top: 10px;
+}
+
+.redes-sociales a {
+    margin-right: 10px;
+}
 /* FORMULARIO ESTILOS */
 .linkLogo {
     margin-right: auto;
 }
 
 .articleFormulario {
-    margin-top: 100px;
-    width: 100%;
-    min-height: 50dvh;
+    margin-top: 20px; /* Ajusta el margen superior según tus necesidades */
+    width: 80%; /* Ajusta el ancho según tus necesidades */
+    max-width: 500px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: auto;
 }
 
 form {
@@ -170,10 +182,7 @@ form {
 /* FORMULARIO LOGIN ESTILOS */
 .sectionFormularioLogin {
     
-    
     align-items: center;
-    
-
     background-color: #42C7D9;
 }
 
@@ -196,15 +205,11 @@ form {
 }
 .sectionFormularioLogin__form input,
 .sectionFormularioLogin__form button {
-   
     margin-bottom: 15px; /* Ajusta el margen inferior de los campos de entrada y el botón */
     width: 100%;
     margin-left: 0px;
-
-
     
 }
-
 
 
 .sectionFormularioLogin__form button:hover {
@@ -239,6 +244,21 @@ form {
 
 
 /* FORMULARIO REGISTRO ESTILOS */
+.formRegistro{
+    background-color: #ADC5D9;
+    border-style: solid;
+    border-color: #0D0D0D;
+    width: 500px;
+    border-radius: 20px;
+}
+
+.mainFormulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
 
 
 /* ESTILOS Q&A */
@@ -257,10 +277,21 @@ form {
     text-align: center;
     padding: 5px;
     width: 300px;
-    margin-left: 30px;
+    margin-left: 40px;
+    margin-top: 15px;
     background-color: whitesmoke;
+
 }
 
 .itemPYR{
     margin: 40px;
+    list-style: none;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: whitesmoke;
+}
+
+.itemPYR h3{
+    margin-bottom: 10px;
 }
