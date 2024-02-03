@@ -45,7 +45,7 @@
         echo '<li><a href="Q&A.html">Q&A</a></li>';
         echo '</ul>';
         echo '</nav>';
-        echo '<a class="CTA" href="formularioLogin.php"><button>Inicia Sesión</button></a>';
+        echo '<a class="CTA" href="formularioLogin.php"><button class="colorBotonPrincipal">Inicia Sesión</button></a>';
         echo '</header>';
     }
     ?>    
@@ -54,7 +54,7 @@
         <!-- INICIO DE NUESTRA PÁGINA WEB -->
         <hr size="7px" color="black">
         <article class="articleFormulario">
-            <h1 style="text-align: center;">REGISTRO FINANCIERO PERSONAL</h1>
+            <h1 style="text-align: center; color: rgb(244, 238, 255);">REGISTRO FINANCIERO PERSONAL</h1>
             <form class="formRegistro" action="estadoDeCuenta.php" method="post">
                 <label for="concepto">Concepto:</label><br>
                 <input type="text" id="concepto" name="concepto"  placeholder="Ejm.zapatos" required><br>

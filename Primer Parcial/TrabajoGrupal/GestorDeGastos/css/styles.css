@@ -14,7 +14,7 @@ a,
 button {
     font-weight: 600;
     font-size: 16px;
-    color: #0D0D0D;
+    color: rgb(184, 173, 210);
     text-decoration: none;
 }
 
@@ -25,16 +25,19 @@ header {
     align-items: center;
     padding: 30px 10%;
     width: 100%;
-    background-color: #42C7D9;
+    background-color: rgb(39, 38, 44);
 }
-
 
 .logo {
     cursor: pointer;
-    width: 230px;
-    height: 50px;
+    width: 200px;
+    height: 30px;
     margin-right: auto;
     object-fit: cover;
+}
+
+.colorBotonPrincipal {
+    color: rgb(25, 19, 38);
 }
 
 .linksDelNav {
@@ -49,7 +52,7 @@ header {
 
 .linksDelNav li,
 a:hover {
-    color: aquamarine;
+    color: rgb(168, 129, 252);
 }
 
 .linksDelNav li,
@@ -61,7 +64,7 @@ button {
     padding: 10px;
     margin-left: 18px;
     border-radius: 10px;
-    background-color: #F9C70E;
+    background-color: rgb(31, 199, 212);
     border: none;
     cursor: pointer;
     transition: all 0.3s ease 0s;
@@ -73,7 +76,7 @@ button:hover {
 
 /*Portada Principal*/
 main {
-    background-color: #9cbeda;
+    background-color: rgb(26, 20, 40);
     /* Lo usamos porque nos queda espacios en blanco al final */
     min-height: 100vh;
 }
@@ -98,7 +101,7 @@ main {
 
 .textoPortada h1 {
     font-size: 50px;
-    color: #0D0D0D;
+    color: rgb(244, 238, 255);
     margin-bottom: 5px;
     text-align: center;
 }
@@ -106,6 +109,17 @@ main {
 .textoPortada p {
     text-align: center;
     font-size: italic;
+}
+
+.sloganPortada {
+    color: rgb(184, 173, 210);
+}
+
+.botonPortada {
+    color: rgb(31, 199, 212);
+    background-color: rgb(26, 20, 40);
+    border-color: rgb(31, 199, 212);
+    border: solid 2px;
 }
 
 .textoPortada button {
@@ -123,13 +137,14 @@ main {
 }
 
 footer {
-    background-color: #42C7D9;
+    background-color: rgb(26, 20, 40);
     text-align: center;
-    padding: 25px 0;
+    padding: 15px 0;
 }
 
-.imgIconosFooter{
-    width: 30px; /* Ajusta el tamaño según sea necesario */
+.imgIconosFooter {
+    width: 30px;
+    /* Ajusta el tamaño según sea necesario */
     height: 30px;
 }
 
@@ -140,15 +155,23 @@ footer {
 .redes-sociales a {
     margin-right: 10px;
 }
+
+/* SUBMENU PRINCIPAL */
+
+
+
 /* FORMULARIO ESTILOS */
 .linkLogo {
     margin-right: auto;
 }
 
 .articleFormulario {
-    margin-top: 20px; /* Ajusta el margen superior según tus necesidades */
-    width: 80%; /* Ajusta el ancho según tus necesidades */
-    max-width: 500px; /* Ajusta el ancho máximo según tus necesidades */
+    margin-top: 20px;
+    /* Ajusta el margen superior según tus necesidades */
+    width: 80%;
+    /* Ajusta el ancho según tus necesidades */
+    max-width: 500px;
+    /* Ajusta el ancho máximo según tus necesidades */
     margin: auto;
 }
 
@@ -169,8 +192,6 @@ form {
     width: 100%;
 }
 
-
-
 .logoFormulario {
     text-align: start;
     width: 230px;
@@ -181,9 +202,6 @@ form {
 
 /* FORMULARIO LOGIN ESTILOS */
 .sectionFormularioLogin {
-    
-    
-    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -191,7 +209,7 @@ form {
     position: relative;
 }
 
-.sectionFormularioLogin__form{
+.sectionFormularioLogin__form {
 
     border-radius: 20px;
     background-color: #ADC5D9;
@@ -201,20 +219,23 @@ form {
     max-width: 400px;
     position: relative;
     height: 360px;
-    z-index: 0; 
+    z-index: 0;
 
 }
 
-.sectionFormularioLogin__form label{
-    margin-bottom: 10px; /* Ajusta el margen inferior de las etiquetas */
+.sectionFormularioLogin__form label {
+    margin-bottom: 10px;
+    /* Ajusta el margen inferior de las etiquetas */
     display: block;
 }
+
 .sectionFormularioLogin__form input,
 .sectionFormularioLogin__form button {
-    margin-bottom: 15px; /* Ajusta el margen inferior de los campos de entrada y el botón */
+    margin-bottom: 15px;
+    /* Ajusta el margen inferior de los campos de entrada y el botón */
     width: 100%;
     margin-left: 0px;
-    
+
 }
 
 
@@ -227,10 +248,10 @@ form {
     text-align: center;
     justify-content: center;
     align-items: center;
-    padding: 6px 50px ;
+    padding: 6px 50px;
     position: relative;
-    
-    
+
+
 }
 
 
@@ -245,38 +266,45 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Establece la altura del contenedor al 100% de la altura de la ventana gráfica */
+    height: 100vh;
+    /* Establece la altura del contenedor al 100% de la altura de la ventana gráfica */
 }
 
 .imageWrapper {
-    
-    margin-bottom: -96px; /* Ajusta el margen inferior de la imagen según tus necesidades */
+
+    margin-bottom: -96px;
+    /* Ajusta el margen inferior de la imagen según tus necesidades */
     text-align: center;
     position: relative;
-    z-index: 1; 
-    
+    z-index: 1;
+
 }
 
 .errorWrapper {
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Alinea el contenido al lado derecho */
+    justify-content: flex-end;
+    /* Alinea el contenido al lado derecho */
     text-align: center;
-    margin-bottom: 366px; /* Ajusta el margen inferior de la imagen según tus necesidades */
-    position: fixed; /* Asegura que el mensaje se mantenga en el lado derecho incluso al hacer scroll */
-    right: 0; /* Posiciona el mensaje al borde derecho de la pantalla */
+    margin-bottom: 366px;
+    /* Ajusta el margen inferior de la imagen según tus necesidades */
+    position: fixed;
+    /* Asegura que el mensaje se mantenga en el lado derecho incluso al hacer scroll */
+    right: 0;
+    /* Posiciona el mensaje al borde derecho de la pantalla */
 }
 
 #mensajeError {
     color: #0D0D0D;
-   font-size: 18px;
-    
-   
+    font-size: 18px;
+
+
 }
 
 
 /* FORMULARIO REGISTRO ESTILOS */
-.formRegistro{
+
+.formRegistro {
     background-color: #ADC5D9;
     border-style: solid;
     border-color: #0D0D0D;
@@ -294,7 +322,7 @@ form {
 
 
 /* ESTILOS Q&A */
-.preguntasYRespuestas{
+.preguntasYRespuestas {
 
     border-radius: 20px;
     background-color: #ADC5D9;
@@ -303,7 +331,7 @@ form {
 
 }
 
-.PYRH2{
+.PYRH2 {
     border-style: solid;
     border-radius: 10px;
     text-align: center;
@@ -315,7 +343,7 @@ form {
 
 }
 
-.itemPYR{
+.itemPYR {
     margin: 40px;
     list-style: none;
     border-style: solid;
@@ -324,7 +352,7 @@ form {
     background-color: whitesmoke;
 }
 
-.itemPYR h3{
+.itemPYR h3 {
     margin-bottom: 10px;
 }
 
@@ -340,7 +368,8 @@ form {
     width: 80%;
     margin: auto;
     border-collapse: collapse;
-    margin-top: 20px; /* Ajusta el margen superior para la tabla */
+    margin-top: 20px;
+    /* Ajusta el margen superior para la tabla */
     z-index: 2;
 }
 
@@ -357,3 +386,12 @@ form {
     color: white;
 }
 
+/* ##################################################
+DEFINICIÓN DE ESTILOS DE LOS GIFS E ÍCONOS */
+.iconoGIF{
+    position: relative;
+    display: inline-block;
+}
+.iconoGIF:hover{
+    animation: playGif 1s steps(30) infinite;
+}

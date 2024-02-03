@@ -14,11 +14,11 @@ if (isset($_POST['nombre'])) {
     $_SESSION['fechaNacimiento'] = htmlspecialchars($_POST['fechaNacimiento']);
     $_SESSION['correoElectronico'] = htmlspecialchars($_POST['correoElectronico']);
     $_SESSION['genero'] = htmlspecialchars($_POST['genero']);
-    
+
     // Puedes añadir más campos según sea necesario
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -33,11 +33,10 @@ if (isset($_POST['nombre'])) {
     <!--Header Menú de Nuestro Proyecto-->
     <?php
     // Verifica si se ha recibido el nombre del usuario
-    
-    if (isset($_POST['nombre'])      ) {
+    if (isset($_POST['nombre'])) {
         // Si se recibe el nombre del usuario, muestra el nombre y redirige a otra página
         $_SESSION['nombre'] = htmlspecialchars($_POST['nombre']);
-        
+
         $nombreUsuario = htmlspecialchars($_POST['nombre']); // Asegura que el nombre esté seguro para mostrar en HTML
         echo '<header>';
         echo '<a class="linkLogo" href="index.php">';
@@ -51,10 +50,9 @@ if (isset($_POST['nombre'])) {
         echo '<li><a href="Q&A.html">Q&A</a></li>';
         echo '</ul>';
         echo '</nav>';
-       
-        echo '<a class="CTA" href="perfilUsuario.php"><button>Bienvenido,' ,$nombreUsuario,'!</button></a>';
+
+        echo '<a class="CTA" href="perfilUsuario.php"><button>Bienvenido,', $nombreUsuario, '!</button></a>';
         echo '</header>';
-        
     } else {
         // Si no se recibe el nombre del usuario, muestra el botón de inicio de sesión
         echo '<header>';
@@ -69,36 +67,36 @@ if (isset($_POST['nombre'])) {
         echo '<li><a href="Q&A.html">Q&A</a></li>';
         echo '</ul>';
         echo '</nav>';
-        echo '<a class="CTA" href="formularioLogin.php"><button>Inicia Sesión</button></a>';
+        echo '<a class="CTA" href="formularioLogin.php" ><button class="colorBotonPrincipal">Inicia Sesión</button></a>';
         echo '</header>';
     }
-    ?>    
-    
-    
-    
+    ?>
+
     <main>
         <!--INICIO DE NUESTRA PÁGINA WEB-->
-        <hr size="7px" color="black">
+        <hr size="1px" color="#383241">
+        <hr size="1px" color="rgb(8, 6, 11)">
         <article class="portadaPrincipal">
             <section class="textoPortada">
                 <h1>ExpenseMaster</h1>
-                <p><i>"Ahorra hoy, vive mejor mañana"</i></p>
-
+                <p class="sloganPortada"><i>"Ahorra hoy, vive mejor mañana"</i></p>
                 <?php
                 // Verifica si se ha recibido el nombre del usuario
                 if (isset($_POST['nombre'])) {
                     // Si se recibe el nombre del usuario, muestra un mensaje de bienvenida
                     $nombreUsuario = htmlspecialchars($_POST['nombre']); // Asegura que el nombre esté seguro para mostrar en HTML
-                   
+
                 } else {
                     // Si no se recibe el nombre del usuario, muestra el botón "Únete"
-                    echo '<a href="formularioRegistro.html"><button>Únete</button></a>';
+                    echo '<a href="formularioRegistro.html"><button class="botonPortada">Únete</button></a>';
                 }
                 ?>
 
-                
             </section>
             <section class="imagenPortada"><img src="images/ChanchitoMonederoLogo.png"></section>
+        </article>
+        <article>
+            <h1>Descubre la mejora manera de ahorrar</h1>
         </article>
     </main>
     <footer>
@@ -113,7 +111,8 @@ if (isset($_POST['nombre'])) {
                 <img class="imgIconosFooter" src="images/github-icon.png" alt="Github">
             </a>
         </section>
-        <p>&copy; 2023 Juan Pablo Pinza & Alex Trejo</p>
-    </footer>
+        <p style="color: rgb(184, 173, 210);">&copy; 2023 Juan Pablo Pinza & Alex Trejo</p>
+    </footer >
 </body>
+
 </html>
