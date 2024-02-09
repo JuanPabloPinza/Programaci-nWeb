@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConjuntaPinza</title>
+    <link rel="stylesheet" href="css/index-style.css">
+</head>
+
+<body>
+    <!--Header Menú de Nuestro Proyecto-->
+    <header>
+        <a class="linkLogo" href="inicio.html">
+            <img class="logo" src="images/ExpenseMaster.png" alt="logo">
+        </a>
+        <nav>
+            <ul class="linksDelNav">
+                <li><a target="_blank" href="https://github.com/JuanPabloPinza/ProgramacionWeb">Sobre Nosotros</a></li>
+                <li><a href="formularioRegistroFinancieroPersonal.php">Registro Financiero Personal</a></li>
+                <li><a href="#nuestrosServicios">Nuestros Servicios</a></li>
+                <li><a href="#preguntasFrecuentes">Q&A</a></li>
+            </ul>
+        </nav>
+        <a class="CTA" target="_blank" href="https://www.equifax.com.ec/miscreditos/blog/ahorro"><button class="colorBotonPrincipal">Tips de Ahorro</button></a>
+        <hr size="1px" color="#383241">
+        <hr size="1px" color="rgb(8, 6, 11)">
+    </header>
+
+    <!--INICIO DE NUESTRA PÁGINA WEB-->
+    <main id="main">
+        <article class="portadaPrincipal">
+            <section class="textoPortada">
+                <h1>ExpenseMaster</h1>
+                <p class="sloganPortada"><i>"Ahorra hoy, vive mejor mañana"</i></p>
+                <a target="_blank" href="https://www.principal.com/es/personas/vida-y-dinero/cinco-pasos-para-fijar-tus-metas-financieras-este-a%C3%B1o"><button class="botonPortada">Establece Metas</button></a>
+            </section>
+            <section class="imagenPortada"><img src="images/ChanchitoMonederoLogo.png"></section>
+        </article>
+        <!--DIV EFECTO DE OLA-->
+        <div class="corteDeOnda" id="nuestrosServicios">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220">
+                <path fill="#08060b" fill-opacity="1" d="M0,96L1440,160L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+
+        <!-- SEGUNDA SECCIÓN -->
+        <article class="segundaSeccion" >
+            <h1 class="tituloSeccion">Toma el <span class="palabraOtroColor">Control</span></h1>
+            <div class="divContenedor">
+                <div class="divImagen">
+                    <img style="width: 330px;" src="images/lluvia-de-meteoros.png" alt="">
+                </div>
+                <div class="divInformacion">
+                    <div class="itemContenedor">
+                        <img src="images/lista-de-verificacion.png" style="width: 100px;" alt="ImgDiv">
+                        <h3 style="color: #24a5b7;">Lleva un Registro</h3>
+                        <p>Mantén un control total sobre tus finanzas con nuestra herramienta de registro de gastos.</p>
+                    </div>
+                    <div class="itemContenedor">
+                        <img src="images/objetivo.png" style="width: 100px;" alt="ImgDiv">
+                        <h3 style="color: #24a5b7;">Apunta a Objetivos</h3>
+                        <p>Establece metas financieras y visualiza tu progreso con nuestro sistema de objetivos.</p>
+                    </div>
+                    <div class="itemContenedor">
+                        <img src="images/calendario.png" style="width: 100px;" alt="ImgDiv">
+                        <h3 style="color: #24a5b7;">Lleva las Fechas</h3>
+                        <p>Programa recordatorios y mantén un seguimiento de tus próximos pagos y fechas importantes con
+                            nuestro calendario integrado.</p>
+                    </div>
+
+                </div>
+        </article>
+        <!-- Para poder efectuar efectos de scroll en nuestro main -->
+        <script>
+            window.addEventListener('scroll', function () {
+                var scrolled = window.scrollY > 0; // Verifica si se ha hecho scroll
+                var mainElement = document.querySelector('main'); // Selecciona el elemento main
+                if (scrolled) {
+                    mainElement.classList.add('scrolled'); // Agrega la clase scrolled si se ha hecho scroll
+                } else {
+                    mainElement.classList.remove('scrolled'); // Elimina la clase scrolled si no hay scroll
+                }
+            });
+        </script>
+
+        <article id="preguntasFrecuentes" style="min-height: 450px;">
+            <h1 style="padding-top: 20px;" class="tituloSeccion">Preguntas <span
+                    class="palabraOtroColor">Frecuentes</span></h1>
+            <div class="faq-container"></div>
+
+            <script src="js/preguntas.js"></script>
+        </article>
+    </main>
+
+    <!--FOOTER-->
+    <footer>
+        <section class="redes-sociales">
+            <a href="https://www.facebook.com/ESPE.U" target="_blank">
+                <img class="imgIconosFooter" src="images/facebook-icon.png" alt="Facebook">
+            </a>
+            <a href="https://twitter.com/i/trends" target="_blank">
+                <img class="imgIconosFooter" src="images/twitter-icon.png" alt="Twitter">
+            </a>
+            <a href="https://github.com/JuanPabloPinza/ProgramacionWeb" target="_blank">
+                <img class="imgIconosFooter" src="images/github-icon.png" alt="Github">
+            </a>
+        </section>
+        <p style="color: rgb(184, 173, 210);">&copy; 2024 Juan Pablo Pinza & Alex Trejo</p>
+    </footer>
+</body>
+
+</html>

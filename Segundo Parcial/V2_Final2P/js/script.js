@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
          }
 
         alert('Iniciar sesión exitoso. ¡Redirigiendo a la página principal!');
-        window.location.href = 'https://pancakeswap.finance/swap';
+        window.location.href = 'inicio.html';
     });
 
     document.getElementById('registerBtn').addEventListener('click', function () {
@@ -59,6 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Puedes agregar más validaciones específicas si es necesario
 
         alert('Registro exitoso. ¡Redirigiendo a la página principal!');
-        window.location.href = 'https://pancakeswap.finance/swap';
+        window.location.href = 'inicio.html';
     });
 });
