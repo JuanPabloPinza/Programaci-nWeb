@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*Estilos para poder sobreescribir todo*/
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    /*background-color: #ADC5D9;
+    font-family: 'Montserrat', sans-serif;*/
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+
+/* ==================PARA EL NAV DEL HEADER ======================= */
+li,
+a,
+button {
+    font-weight: 600;
+    font-size: 16px;
+    color: rgb(184, 173, 210);
+    text-decoration: none;
+}
+
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 30px 10%;
+  width: 100%;
+  background: linear-gradient(to right, rgb(39, 38, 44), rgb(54, 53, 89), rgb(39, 38, 44));
+  background-size: 200% auto;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+/* Estilo de la línea superior */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px; /* Altura de la línea */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  background-size: 200% auto;
+  animation: lineAnimation 10s ease infinite;
+}
+
+/* Animación para la desplazamiento de la línea */
+@keyframes lineAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.linkLogo {
+  margin-right: auto;
+}
+
+.logo {
+    cursor: pointer;
+    width: 200px;
+    height: 30px;
+    margin-right: auto;
+    object-fit: cover;
+}
+
+.colorBotonPrincipal {
+    color: rgb(25, 19, 38);
+}
+
+.linksDelNav {
+    list-style: none;
+}
+
+.linksDelNav li {
+    /*Nos sirve para poder poner de forma horizontal los bloques*/
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.linksDelNav li,
+a:hover {
+    color: rgb(168, 129, 252);
+}
+
+.linksDelNav li,
+a {
+    transition: all 0.3s ease 0s;
+}
+
+button {
+    padding: 10px;
+    margin-left: 18px;
+    border-radius: 10px;
+    background-color: rgb(31, 199, 212);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: rgb(30, 137, 154);
+}
+
+/* FORMULARIO REGISTRO ESTILOS */
+/* FORMULARIO ESTILOS */
+.linkLogo {
+  margin-right: auto;
+}
+
+.articleFormulario {
+  margin-top: 20px;
+  /* Ajusta el margen superior según tus necesidades */
+  width: 80%;
+  /* Ajusta el ancho según tus necesidades */
+  max-width: 500px;
+  /* Ajusta el ancho máximo según tus necesidades */
+  margin: auto;
+}
+
+form {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.bodyFormulario {
+  background-color: #9cbeda;
+}
+
+.footerFormulario {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.logoFormulario {
+  text-align: start;
+  width: 230px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 320px;
+}
+
+/* FORMULARIO LOGIN ESTILOS */
+.sectionFormularioLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #42C7D9;
+  position: relative;
+}
+
+.sectionFormularioLogin__form {
+
+  border-radius: 20px;
+  background-color: #ADC5D9;
+  margin: 20px auto;
+  border-style: solid;
+  padding: 70px;
+  max-width: 400px;
+  position: relative;
+  height: 360px;
+  z-index: 0;
+
+}
+
+.sectionFormularioLogin__form label {
+  margin-bottom: 10px;
+  /* Ajusta el margen inferior de las etiquetas */
+  display: block;
+}
+
+.sectionFormularioLogin__form input,
+.sectionFormularioLogin__form button {
+  margin-bottom: 15px;
+  /* Ajusta el margen inferior de los campos de entrada y el botón */
+  width: 100%;
+  margin-left: 0px;
+
+}
+
+
+.sectionFormularioLogin__form button:hover {
+  background-color: #f2cd5e9d;
+}
+
+
+.formLogin {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 50px;
+  position: relative;
+
+
+}
+
+
+.mainLogin {
+  background-color: #42C7D9;
+  /* Lo usamos porque nos queda espacios en blanco al final */
+  min-height: 100vh;
+  max-height: 80vh;
+}
+
+.centerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  /* Establece la altura del contenedor al 100% de la altura de la ventana gráfica */
+}
+
+.imageWrapper {
+
+  margin-bottom: -96px;
+  /* Ajusta el margen inferior de la imagen según tus necesidades */
+  text-align: center;
+  position: relative;
+  z-index: 1;
+
+}
+
+.errorWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* Alinea el contenido al lado derecho */
+  text-align: center;
+  margin-bottom: 366px;
+  /* Ajusta el margen inferior de la imagen según tus necesidades */
+  position: fixed;
+  /* Asegura que el mensaje se mantenga en el lado derecho incluso al hacer scroll */
+  right: 0;
+  /* Posiciona el mensaje al borde derecho de la pantalla */
+}
+
+#mensajeError {
+  color: #0D0D0D;
+  font-size: 18px;
+}
+
+
+/* FORMULARIO REGISTRO ESTILOS */
+
+.formRegistro {
+  background-color: rgb(48, 213, 255);
+  border-style: solid;
+  border-color: #0D0D0D;
+  width: 500px;
+  border-radius: 20px;
+  padding: 20px; /* Agrega un espacio interno alrededor del formulario */
+}
+
+.formRegistro label {
+  margin-bottom: 10px; /* Agrega un margen inferior a las etiquetas de los campos */
+}
+
+.tituloSeccion{
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 35px;
+  color: #f4eeff;
+}
+.palabraOtroColor{
+  color: #a881fc;
+}
+.formRegistro input {
+  margin-bottom: 15px; /* Agrega un margen inferior a los campos de entrada */
+}
+
+.formRegistro input[type="submit"]{
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.formRegistro input[type="submit"]:hover {
+  background-color: rgb(33, 149, 178); /* Cambia el color de fondo al pasar por encima */
+}
+
+.mainFormulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  animation: changeColor 5s ease infinite alternate; /* Animación de cambio de color */
+}
+
+@keyframes changeColor {
+  0% {
+      background-color: rgb(56, 49, 87); /* Color inicial */
+  }
+  50% {
+      background-color: rgb(92, 67, 134); /* Color intermedio */
+  }
+  100% {
+      background-color: rgb(56, 49, 87); /* Color final */
+  }
+}
+
+/*==============ESTILOS DEL FOOTER==================*/
+footer {
+  background-color: rgb(26, 20, 40);
+  text-align: center;
+  padding: 15px 0;
+}
+
+.imgIconosFooter {
+  width: 30px;
+  /* Ajusta el tamaño según sea necesario */
+  height: 30px;
+}
+
+.redes-sociales {
+  margin-top: 10px;
+}
+
+.redes-sociales a {
+  margin-right: 10px;
+}
+
+/* ===============ESTILO DE SCROLL PERSONALIZADO=================== */
+body::-webkit-scrollbar {
+width: 7px;
+}
+
+body::-webkit-scrollbar-thumb {
+background: #b8add2;
+}
