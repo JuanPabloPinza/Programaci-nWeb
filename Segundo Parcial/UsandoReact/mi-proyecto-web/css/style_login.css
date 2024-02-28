@@ -392,7 +392,7 @@ article,aside,figcaption,figure,footer,header,hgroup,main,nav,section{
 
 
 
-body{
+div{
   min-width:992px!important; 
   margin:0;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
@@ -404,7 +404,7 @@ body{
   background-color:#57a16b
 }[tabindex="-1"]:focus:not(:focus-visible){outline:0!important}
 
-body{
+div{
 	font-family: 'Poppins', sans-serif;
 	font-weight: 300;
 	line-height: 1.7;

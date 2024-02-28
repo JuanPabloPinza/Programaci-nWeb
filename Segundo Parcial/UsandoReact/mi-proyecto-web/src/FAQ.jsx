@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles/index-style.css';
 
 const FAQData = [
   {
