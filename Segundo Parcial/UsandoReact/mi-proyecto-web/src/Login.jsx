@@ -128,7 +128,7 @@ fetch('http://localhost:3001/registro', {
 
 
   return (
-    <div style={{ color: 'aliceblue' }}>
+    <div className="custom-style" style={{ color: 'aliceblue' }}>
       <section id="stars"></section>
       <section id="stars2"></section>
       <section id="stars3"></section>

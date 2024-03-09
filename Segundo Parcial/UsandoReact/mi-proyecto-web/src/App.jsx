@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Login from './Login';
-import Header from './Header';
-import PortadaPrincipal from './PortadaPrincipal';
+import Header from './components/Header';
+import Portada from './pages/Portada';
 import SegundaSeccion from './SegundaSeccion';
-import Footer from './Footer';
+import Footer from './components/Footer';
 import PreguntasFrecuentes from './FAQ';
 
 
@@ -18,7 +18,7 @@ function App() {
       {isAuthenticated ? (
         <>
           <Header />
-          <PortadaPrincipal />
+          <Portada/>
           <SegundaSeccion />
           <PreguntasFrecuentes />
           <Footer />

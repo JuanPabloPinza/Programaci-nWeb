@@ -1,7 +1,7 @@
 import React from 'react';
-import './styles/index-style.css';
+import '../styles/portada.css';
 
-function PortadaPrincipal() {
+function Portada() {
     return (
         <main id="main">
             <article className="portadaPrincipal">
@@ -16,4 +16,4 @@ function PortadaPrincipal() {
     );
 }
 
-export default PortadaPrincipal;
+export default Portada;
