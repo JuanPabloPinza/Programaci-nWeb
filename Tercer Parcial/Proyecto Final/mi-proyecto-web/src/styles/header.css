@@ -1,0 +1,109 @@
+/* ==================PARA EL NAV DEL HEADER ======================= */
+li,
+a,
+button {
+    font-weight: 600;
+    font-size: 16px;
+    color: rgb(184, 173, 210);
+    text-decoration: none;
+}
+
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 30px 10%;
+  width: 100%;
+  background: linear-gradient(to right, rgb(39, 38, 44), rgb(54, 53, 89), rgb(39, 38, 44));
+  background-size: 200% auto;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+/* Estilo de la línea superior */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px; /* Altura de la línea */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  background-size: 200% auto;
+  animation: lineAnimation 10s ease infinite;
+}
+
+/* Animación para la desplazamiento de la línea */
+@keyframes lineAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.linkLogo {
+  margin-right: auto;
+}
+
+.logo {
+    cursor: pointer;
+    width: 200px;
+    height: 30px;
+    margin-right: auto;
+    object-fit: cover;
+}
+
+.colorBotonPrincipal {
+    color: rgb(25, 19, 38);
+}
+
+.linksDelNav {
+    list-style: none;
+}
+
+.linksDelNav li {
+    /*Nos sirve para poder poner de forma horizontal los bloques*/
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.linksDelNav li,
+a:hover {
+    color: rgb(168, 129, 252);
+}
+
+.linksDelNav li,
+a {
+    transition: all 0.3s ease 0s;
+}
+
+button {
+    padding: 10px;
+    margin-left: 18px;
+    border-radius: 10px;
+    background-color: rgb(31, 199, 212);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: rgb(30, 137, 154);
+}

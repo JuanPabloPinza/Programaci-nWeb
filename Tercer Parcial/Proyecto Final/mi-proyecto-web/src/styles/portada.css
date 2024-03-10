@@ -1,0 +1,97 @@
+/*===========================Portada Principal======================*/
+main {
+    background: linear-gradient(to bottom, rgb(29, 22, 48) 0%, rgb(16, 13, 24) 100%);
+    background-attachment: fixed; /* Fija el fondo mientras se desplaza */
+    transition: background-color 0.3s ease-in-out; /* Transición de color suave */
+    min-height: 100vh;
+  }
+  
+  /* Cambio de color del fondo al hacer scroll */
+  main.scrolled {
+    background: linear-gradient(to bottom, rgb(54, 53, 89) 0%, rgb(32, 24, 54) 50%, rgb(31, 18, 51) 100%);
+  }
+  
+  
+  
+  .portadaPrincipal {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      height: 700px;
+  
+  }
+  
+  .textoPortada {
+      width: 100%;
+      padding-right: 100px;
+      text-align: center;
+  
+  }
+  
+  .textoPortada h1 {
+      font-size: 50px;
+      color: rgb(244, 238, 255);
+      margin-bottom: 5px;
+      text-align: center;
+  }
+  
+  .textoPortada p {
+      text-align: center;
+      font-size: italic;
+  }
+  
+  .sloganPortada {
+      color: rgb(184, 173, 210);
+  }
+  
+  .botonPortada {
+      color: rgb(31, 199, 212);
+      background-color: rgb(26, 20, 40);
+      border-color: rgb(31, 199, 212);
+      border: solid 2px;
+  }
+  
+  .textoPortada button {
+      margin-left: 0px;
+      margin-top: 50px;
+  }
+  
+  .imagenPortada {
+    width: 100%;
+    height: 550px; /* Ajusta la altura según sea necesario */
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    border-radius: 100%;
+    overflow: hidden;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.3);
+  }
+  
+  .imagenPortada img {
+    max-width: 100%;
+    max-height: 100%;
+    animation: mover 2s linear infinite alternate;
+  }
+  .imagenPortada::after {
+    content: ""; /* Agrega un pseudo-elemento para crear la sombra */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); /* Define la sombra con el desplazamiento, el radio y el color */
+    border-radius: 50%; /* Asegura que la sombra también sea redonda */
+  }
+  
+  @keyframes mover {
+    from {
+      transform: translateY(0px) scale(1.36); /* Inicia con una ligera traslación hacia arriba y una escala ligeramente mayor */
+    }
+    to {
+      transform: translateY(5px) scale(1.327); /* Termina con una ligera traslación hacia abajo y una escala ligeramente menor */
+    }
+  }
