@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import Login from './Login';
-import Header from './components/Header';
 import Portada from './pages/Portada';
-import SegundaSeccion from './SegundaSeccion';
-import Footer from './components/Footer';
-import PreguntasFrecuentes from './FAQ';
 
 
 
@@ -17,11 +13,7 @@ function App() {
     <div>
       {isAuthenticated ? (
         <>
-          <Header />
           <Portada/>
-          <SegundaSeccion />
-          <PreguntasFrecuentes />
-          <Footer />
         </>
       ) : (
         <Login onLogin={() => setAuthenticated(true)} />

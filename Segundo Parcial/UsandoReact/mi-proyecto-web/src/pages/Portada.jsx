@@ -1,8 +1,17 @@
 import React from 'react';
 import '../styles/portada.css';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import SegundaSeccion from '../SegundaSeccion';
+import PreguntasFrecuentes from '../FAQ';
+
+
+
 
 function Portada() {
     return (
+        <>
+        <Header/>
         <main id="main">
             <article className="portadaPrincipal">
                 <section className="textoPortada">
@@ -13,6 +22,10 @@ function Portada() {
                 <section className="imagenPortada"><img src="images/ChanchitoMonederoLogo.png" /></section>
             </article>
         </main>
+        <SegundaSeccion/>
+        <PreguntasFrecuentes />
+        <Footer/>
+        </>
     );
 }
 
