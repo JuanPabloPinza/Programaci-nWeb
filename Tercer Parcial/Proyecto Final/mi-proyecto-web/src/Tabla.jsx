@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 function Tabla({correo}) {
   const [gastos, setGastos] = useState([]);
-    console.log("Correooo!:", correo);
+    console.log("Correo:", correo);
   useEffect(() => {
     fetch("http://localhost:3001/gastos", {
       method: "POST",
@@ -34,13 +34,19 @@ function Tabla({correo}) {
         </tr>
       </thead>
       <tbody>
-        {gastos.map((gasto) => ( // Cambiado de gastos a gasto
-          <tr key={gasto.id_gasto}>
-            <td>{gasto.nombre_gasto}</td>
-            <td>{new Date(gasto.fecha_gasto).toLocaleDateString()}</td>
-            <td>{gasto.categoria_gasto}</td>
+      {Array.isArray(gastos) && gastos.length > 0 ? (
+          gastos.map((gasto) => (
+            <tr key={gasto.id_gasto}>
+              <td>{gasto.nombre_gasto}</td>
+              <td>{new Date(gasto.fecha_gasto).toLocaleDateString()}</td>
+              <td>{gasto.categoria_gasto}</td>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colSpan="3">No hay gastos disponibles</td>
           </tr>
-        ))}
+        )}
       </tbody>
     </table>
   );

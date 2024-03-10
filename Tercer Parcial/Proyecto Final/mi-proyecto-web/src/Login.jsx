@@ -43,6 +43,9 @@ const Login = ({ onLogin }) => {
         .then(response => response.json())
         .then(data => {
             console.log('Respuesta de la base de datos en inicio de sesión:', data);
+              
+
+
           if (data.success) {
             alert('Inicio de sesión exitoso. ¡Redirigiendo a la página principal!');
             onLogin(correoLogin);
@@ -180,9 +183,7 @@ fetch('http://localhost:3001/registro', {
                           >
                             Iniciar sesión
                             </button>
-                          <p className="mb-0 mt-4 text-center">
-                            <a style={{ color: 'aliceblue' }} href="#" className="link">¿Olvidaste tu contraseña?</a>
-                          </p>
+                          
                         </section>
                       </section>
                     </section>

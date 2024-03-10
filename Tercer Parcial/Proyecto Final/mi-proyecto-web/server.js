@@ -96,50 +96,36 @@ app.post('/gastos', (req, res) => {
       if (results.length > 0) {
         res.json(results);
       } else {
-        console.log('No se encontraron gastos para el usuario con ID: ', id_usuario);
+        console.log('No se encontraron gastos para el usuario con correo: ', correo);
+        res.json({ success: false, message: 'No se encontraron gastos para el usuario' });
       }
     }
   });
 });
-/*
-//ESTO NO FUNCIONA, PERO SOLO FUE PARA DARME UNA IDEA DE ESAS COSAS RARAS
-// Rutas para operaciones de la base de datos
-app.post('/gastos', (req, res) => {
-  const { id_usuario } = req.body;
 
-  const sql = 'SELECT * FROM gastos WHERE id_usuario = ?';
-  db.query(sql, [id_usuario], (err, results) => {
+
+app.get('/getNombre', (req, res) => {
+  console.log('Inicio de la solicitud de nombre');
+  const { correo } = req.query;
+
+  const sql = 'SELECT nombre FROM usuarios WHERE correo = ?';
+  db.query(sql, [correo], (err, results) => {
     if (err) {
-      console.error('Error en la consulta de gastos: ', err);
+      console.error('Error en la consulta de obtener nombre: ', err);
       res.status(500).send('Error interno del servidor');
     } else {
       if (results.length > 0) {
-        res.json(results);
+        console.log('Nombre encontrado:', results[0].nombre); // Agrega este console.log
+        
+
+        res.json({ success: true, nombre: results[0].nombre });
       } else {
-        console.log('No se encontraron gastos para el usuario con ID: ', id_usuario);
+        res.json({ success: false, message: 'Usuario no encontrado' });
       }
     }
+    console.log('Fin de la solicitud de nombre'); // Agr
   });
 });
-
-app.get('/gastos', (req, res) => {
-  const { correo } = req.params;
-  const query = `
-    SELECT gastos.*
-    FROM gastos
-    JOIN usuarios ON gastos.id_usuario = usuarios.id_usuario
-    WHERE usuarios.correo = ?
-  `;
-
-  connection.query(query, [correo], (error, results) => {
-    if (error) {
-      console.error(error);
-      res.status(500).json({ success: false, message: 'Error al obtener los gastos' });
-    } else {
-      res.json(results);
-    }
-  });
-});*/
 
 
 // Iniciar el servidor
