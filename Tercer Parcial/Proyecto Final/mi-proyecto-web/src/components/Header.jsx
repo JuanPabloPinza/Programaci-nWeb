@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "../styles/header.css";
-import { AuthContext } from "../App"; // Importar el contexto de autenticación
+import { AuthContext } from "../TempApp"; // Importar el contexto de autenticación
 
 
 function Header() {
