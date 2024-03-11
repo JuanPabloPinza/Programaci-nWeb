@@ -33,6 +33,8 @@ function Tabla({correo}) {
   return (
     <>
     <Header/>
+    <section className="sectionTabla">
+      <h1 className="tituloTabla">MIS GASTOS PERSONALES</h1>
     <table>
       <thead>
         <tr>
@@ -57,6 +59,7 @@ function Tabla({correo}) {
         )}
       </tbody>
     </table>
+    </section>
     <Footer/>
     </>
   );
