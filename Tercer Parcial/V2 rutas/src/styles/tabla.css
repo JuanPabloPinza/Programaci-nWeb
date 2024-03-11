@@ -42,6 +42,9 @@ tr:hover {
   padding-top: 2%;
   color: white;
 }
+.tituloSeccion{
+  margin: 0;
+}
 
 .sectionTabla {
   position: relative;
@@ -51,9 +54,10 @@ tr:hover {
 
 .sectionTabla table {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+
 }
 
 .subTituloAhorro{
@@ -64,3 +68,14 @@ tr:hover {
   padding-top: 2%;
 }
 
+.botonEliminar{
+  color: black;
+}
+
+.botonEditar{
+  color: black;
+}
+
+.sectionTablaEncabezado{
+  background-color: #393158;
+}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
-
 import Header from "../components/Header";
 import "../styles/tabla.css";
 import "../styles/portada.css";
@@ -9,14 +8,11 @@ function Tabla({ correo }) {
   const [gastos, setGastos] = useState([]);
   const [nombreUsuario, setNombreUsuario] = useState("");
   const [ahorros, setAhorros] = useState("");
-  const [editingGasto, setEditingGasto] = useState(null); // Estado para almacenar el gasto que se está editando
-
-  console.log("Correo:", correo);
-  console.log("Nombre Usuario:", nombreUsuario);
-  console.log("AHORROSS:", ahorros);
+  const [editingGasto, setEditingGasto] = useState(null);
+  const [editandoAhorros, setEditandoAhorros] = useState(false);
+  const [nuevosAhorros, setNuevosAhorros] = useState("");
 
   useEffect(() => {
-    // Realizar la solicitud para obtener el nombre del usuario
     fetch(`http://localhost:3001/getNombre?correo=${correo}`)
       .then((response) => response.json())
       .then((data) => {
@@ -37,8 +33,6 @@ function Tabla({ correo }) {
         );
       });
 
-    // Realizar la solicitud para obtener los gastos
-
     fetch("http://localhost:3001/gastos", {
       method: "POST",
       headers: {
@@ -51,8 +45,8 @@ function Tabla({ correo }) {
       .then((response) => response.json())
       .then((data) => {
         console.log("Respuesta de la base de datos en gastos:", data);
-        setGastos(data); // Cambiado de data.gastos a data
-        console.log("Gastos:", data); // Cambiado de data.gastos a data
+        setGastos(data);
+        console.log("Gastos:", data);
       })
       .catch((error) => {
         console.error("Error al obtener gastos", error);
@@ -72,7 +66,6 @@ function Tabla({ correo }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          // Si el gasto se eliminó exitosamente, actualizamos la lista de gastos
           setGastos(gastos.filter((gasto) => gasto.id_gasto !== id_gasto));
         } else {
           console.error("Error al eliminar el gasto:", data.message);
@@ -83,13 +76,26 @@ function Tabla({ correo }) {
       });
   };
 
+  const guardarAhorrosEditados = () => {
+    actualizarAhorros(nuevosAhorros);
+    setEditandoAhorros(false);
+    setAhorros(nuevosAhorros); // Actualizar el estado local de los ahorros
+  };
+
+  const activarEdicionAhorros = () => {
+    setEditandoAhorros(true);
+    setNuevosAhorros(ahorros); // Establecer el valor inicial del input como los ahorros actuales
+  };
+
+  const cancelarEdicionAhorros = () => {
+    setEditandoAhorros(false);
+  };
+
   const editarGasto = (gasto) => {
-    setEditingGasto(gasto); // Establecer el gasto actual como el gasto que se está editando
-    // Aquí podrías mostrar un popup/modal con un formulario prellenado con los detalles del gasto para editar
+    setEditingGasto(gasto);
   };
 
   const guardarEdicionGasto = (id_gasto, nuevoGasto) => {
-    // Aquí debes enviar una solicitud al servidor para actualizar el gasto en la base de datos
     fetch("http://localhost:3001/editarGasto", {
       method: "POST",
       headers: {
@@ -103,9 +109,12 @@ function Tabla({ correo }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          // Actualizar la lista de gastos en el estado del componente con los datos actualizados
-          setGastos(gastos.map(g => g.id_gasto === id_gasto ? data.gastoActualizado : g));
-          setEditingGasto(null); // Desactivar el modo de edición
+          setGastos(
+            gastos.map((g) =>
+              g.id_gasto === id_gasto ? data.gastoActualizado : g
+            )
+          );
+          setEditingGasto(null);
         } else {
           console.error("Error al editar el gasto:", data.message);
         }
@@ -115,19 +124,41 @@ function Tabla({ correo }) {
       });
   };
 
-  // Cálculo de la suma total de precios
+  const actualizarAhorros = (nuevosAhorros) => {
+    fetch("http://localhost:3001/editarAhorros", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        correo: correo,
+        nuevosAhorros: nuevosAhorros,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          console.log("Ahorros actualizados exitosamente");
+        } else {
+          console.error("Error al actualizar los ahorros:", data.message);
+        }
+      })
+      .catch((error) => {
+        console.error("Error al actualizar los ahorros:", error);
+      });
+  };
+
   const sumaTotalPrecios = gastos
     .reduce((total, gasto) => total + gasto.precio, 0)
     .toFixed(2);
 
-  // Cálculo de los ahorros restantes
   const ahorrosRestantes = (ahorros - sumaTotalPrecios).toFixed(2);
 
   return (
     <>
       <Header />
-      <section className="sectionTabla">
-        <h1 className="tituloTabla">Balance de Cuenta - {nombreUsuario}</h1>
+      <section className="sectionTablaEncabezado">
+      <h1 className="tituloTabla">Balance de Cuenta - {nombreUsuario}</h1>
         <h2
           style={{
             paddingTop: "20px",
@@ -139,7 +170,23 @@ function Tabla({ correo }) {
         >
           Mis ahorros totales:{" "}
           <span className="palabraOtroColor">${ahorros}</span>
+          {editandoAhorros ? (
+            <div>
+              <input
+                type="number"
+                value={nuevosAhorros}
+                onChange={(e) => setNuevosAhorros(e.target.value)}
+              />
+              <button className='botonEditar' onClick={guardarAhorrosEditados}>Guardar</button>
+              <button  className='botonEditar' onClick={cancelarEdicionAhorros}>Cancelar</button>
+            </div>
+          ) : (
+            <button  className='botonEditar' onClick={activarEdicionAhorros}>Editar</button>
+          )}
         </h2>
+        </section>
+      <section className="sectionTabla">
+
         <table>
           <thead>
             <tr>
@@ -147,7 +194,7 @@ function Tabla({ correo }) {
               <th>Fecha del gasto</th>
               <th>Precio</th>
               <th>Categoría del gasto</th>
-              <th>Acciones</th> {/* Nueva columna para el botón Eliminar */}
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -159,7 +206,10 @@ function Tabla({ correo }) {
                   <td>${gasto.precio.toFixed(2)}</td>
                   <td>{gasto.categoria_gasto}</td>
                   <td>
-                    <button onClick={() => eliminarGasto(gasto.id_gasto)}>
+                    <button
+                      className="botonEliminar"
+                      onClick={() => eliminarGasto(gasto.id_gasto)}
+                    >
                       Eliminar
                     </button>
                   </td>
@@ -170,7 +220,6 @@ function Tabla({ correo }) {
                 <td colSpan="5">No hay gastos disponibles</td>
               </tr>
             )}
-            {/* Fila para la suma total de precios y los ahorros restantes */}
             <tr>
               <td colSpan="2">
                 <strong>TOTAL:</strong>
@@ -185,10 +234,7 @@ function Tabla({ correo }) {
               </td>
               <td colSpan="2">
                 <strong>Ahorros restantes:</strong> $
-                {ahorros -
-                  gastos
-                    .reduce((total, gasto) => total + gasto.precio, 0)
-                    .toFixed(2)}
+                {ahorrosRestantes}
               </td>
             </tr>
           </tbody>

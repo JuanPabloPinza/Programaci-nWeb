@@ -179,6 +179,20 @@ app.post("/editarGasto", (req, res) => {
 });
 */
 
+app.post("/editarAhorros", (req, res) => {
+  const { correo, nuevosAhorros } = req.body;
+
+  const updateAhorrosSql = "UPDATE usuarios SET ahorros = ? WHERE correo = ?";
+  db.query(updateAhorrosSql, [nuevosAhorros, correo], (errUpdate, resultsUpdate) => {
+    if (errUpdate) {
+      console.error("Error al actualizar los ahorros: ", errUpdate);
+      res.status(500).send("Error interno del servidor");
+    } else {
+      res.json({ success: true, message: "Ahorros actualizados exitosamente" });
+    }
+  });
+});
+
 app.get("/getNombre", (req, res) => {
   console.log("Inicio de la solicitud de nombre");
   const { correo } = req.query;
