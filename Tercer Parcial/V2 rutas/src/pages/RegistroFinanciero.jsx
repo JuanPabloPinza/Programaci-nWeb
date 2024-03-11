@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import '../styles/tabla.css';
 import '../styles/portada.css';
+import '../styles/registroFinanciero.css';
 
 function RegistroFinanciero({ correo }) {
   const [gastos, setGastos] = useState([]);
@@ -62,6 +63,35 @@ function RegistroFinanciero({ correo }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  
+    // Obtener la fecha actual
+    const fechaActual = new Date();
+  
+    // Convertir la fecha del nuevo gasto a un objeto Date
+    const fechaGasto = new Date(nuevoGasto.fecha);
+  
+    // Obtener la fecha hace dos meses
+    const fechaDosMesesAtras = new Date();
+    fechaDosMesesAtras.setMonth(fechaActual.getMonth() - 2);
+  
+    // Verificar si la fecha del nuevo gasto es en el futuro
+    if (fechaGasto > fechaActual) {
+      alert("No se puede ingresar una fecha del futuro.");
+      return;
+    }
+  
+    // Verificar si la fecha del nuevo gasto es mayor a dos meses atrás
+    if (fechaGasto < fechaDosMesesAtras) {
+      alert("La fecha del gasto debe ser dentro de los últimos dos meses.");
+      return;
+    }
+  
+    // Validar que el precio sea mayor que cero
+    if (nuevoGasto.precio <= 0 || isNaN(nuevoGasto.precio)) {
+      alert("El precio debe ser mayor que cero y numérico.");
+      return;
+    }
+  
     // Realizar la solicitud para insertar el nuevo gasto
     fetch("http://localhost:3001/insertarGasto", {
       method: "POST",
@@ -76,26 +106,26 @@ function RegistroFinanciero({ correo }) {
         precio: nuevoGasto.precio
       }),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Respuesta de la base de datos al insertar el gasto:", data);
-        if (data.success) {
-          // Actualizar la lista de gastos si la inserción fue exitosa
-          setGastos(prevGastos => [...prevGastos, nuevoGasto]);
-          // Limpiar el estado del nuevo gasto
-          setNuevoGasto({
-            nombre: '',
-            fecha: '',
-            precio: 0,
-            categoria: ''
-          });
-        } else {
-          console.error("Error al insertar el nuevo gasto:", data.message);
-        }
-      })
-      .catch((error) => {
-        console.error("Error al insertar el nuevo gasto:", error);
-      });
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Respuesta de la base de datos al insertar el gasto:", data);
+      if (data.success) {
+        // Actualizar la lista de gastos si la inserción fue exitosa
+        setGastos(prevGastos => [...prevGastos, nuevoGasto]);
+        // Limpiar el estado del nuevo gasto
+        setNuevoGasto({
+          nombre: '',
+          fecha: '',
+          precio: 0,
+          categoria: ''
+        });
+      } else {
+        console.error("Error al insertar el nuevo gasto:", data.message);
+      }
+    })
+    .catch((error) => {
+      console.error("Error al insertar el nuevo gasto:", error);
+    });
   };
 
   // Cálculo de la suma total de precios
@@ -107,9 +137,9 @@ function RegistroFinanciero({ correo }) {
   return (
     <>
       <Header />
-      <section className="sectionTabla">
-        <h1 className="tituloTabla">Registro Financiero</h1>
-        <form onSubmit={handleSubmit}>
+      <section className="sectionRegistro">
+        <h1 className="tituloRegistro">Registro Financiero</h1>
+        <form className="formularioRegistro" onSubmit={handleSubmit}>
           <label>
             Nombre del gasto:
             <input

@@ -1,0 +1,55 @@
+/* registroFinanciero.css */
+
+.sectionRegistro {
+  background-color: #393158; 
+  padding: 30px; 
+  height: 80vh; 
+}
+
+.tituloRegistro {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: whitesmoke;
+}
+
+.formularioRegistro {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 20px;
+  margin: auto; 
+  max-width: 400px; 
+}
+
+.formularioRegistro label {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Gap between label and input */
+  font-weight: bold; /* Bold font for labels */
+  color: #5d5abe;
+}
+
+.formularioRegistro input,
+.formularioRegistro select {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%; /* Ancho completo para que ocupe todo el contenedor */
+  margin-bottom: 0px; /* Remove margin for better alignment */
+}
+
+.formularioRegistro button {
+  padding: 12px 20px;
+  background-color: #1fc7d4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formularioRegistro button:hover {
+  background-color: #0056b3;
+}
