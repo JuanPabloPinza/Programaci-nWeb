@@ -181,9 +181,9 @@ function Tabla({ correo }) {
       });
   };
 
-  const sumaTotalPrecios = gastos
-    .reduce((total, gasto) => total + gasto.precio, 0)
-    .toFixed(2);
+  const sumaTotalPrecios = Array.isArray(gastos) && gastos.length > 0
+  ? gastos.reduce((total, gasto) => total + parseFloat(gasto.precio), 0).toFixed(2)
+  : "0.00";
 
   const ahorrosRestantes = (ahorros - sumaTotalPrecios).toFixed(2);
 
@@ -332,10 +332,8 @@ function Tabla({ correo }) {
               </td>
               <td>
                 <strong>
-                  $
-                  {gastos
-                    .reduce((total, gasto) => total + gasto.precio, 0)
-                    .toFixed(2)}
+                  ${sumaTotalPrecios}
+                  
                 </strong>
               </td>
               <td colSpan="2">

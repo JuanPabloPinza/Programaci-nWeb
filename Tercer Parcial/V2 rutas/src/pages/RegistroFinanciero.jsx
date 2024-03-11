@@ -129,10 +129,14 @@ function RegistroFinanciero({ correo }) {
   };
 
   // Cálculo de la suma total de precios
-  const sumaTotalPrecios = gastos.reduce((total, gasto) => total + gasto.precio, 0);
+  const sumaTotalPrecios = gastos && Array.isArray(gastos) && gastos.length > 0
+    ? gastos.reduce((total, gasto) => total + gasto.precio, 0).toFixed(2)
+    : "0.00";
 
   // Cálculo de los ahorros restantes
-  const ahorrosRestantes = ahorros - sumaTotalPrecios;
+  const ahorrosRestantes = ahorros
+    ? (ahorros - sumaTotalPrecios).toFixed(2)
+    : "0.00";
 
   return (
     <>
