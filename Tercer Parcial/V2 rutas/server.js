@@ -108,7 +108,7 @@ app.get('/getNombre', (req, res) => {
   console.log('Inicio de la solicitud de nombre');
   const { correo } = req.query;
 
-  const sql = 'SELECT nombre FROM usuarios WHERE correo = ?';
+  const sql = 'SELECT * FROM usuarios WHERE correo = ?';
   db.query(sql, [correo], (err, results) => {
     if (err) {
       console.error('Error en la consulta de obtener nombre: ', err);
@@ -116,9 +116,9 @@ app.get('/getNombre', (req, res) => {
     } else {
       if (results.length > 0) {
         console.log('Nombre encontrado:', results[0].nombre); // Agrega este console.log
-        
+        console.log('Ahorros encontrado:', results[0].ahorros);
 
-        res.json({ success: true, nombre: results[0].nombre });
+        res.json({ success: true, nombre: results[0].nombre, ahorros: results[0].ahorros});
       } else {
         res.json({ success: false, message: 'Usuario no encontrado' });
       }
