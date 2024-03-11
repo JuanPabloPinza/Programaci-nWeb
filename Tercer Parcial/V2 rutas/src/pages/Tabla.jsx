@@ -56,58 +56,58 @@ function Tabla({correo}) {
 
 
 // Cálculo de la suma total de precios
-const sumaTotalPrecios = gastos.reduce((total, gasto) => total + gasto.precio, 0);
+const sumaTotalPrecios = gastos.reduce((total, gasto) => total + gasto.precio, 0).toFixed(2);
 
 // Cálculo de los ahorros restantes
-const ahorrosRestantes = ahorros - sumaTotalPrecios;
+const ahorrosRestantes = (ahorros - sumaTotalPrecios).toFixed(2);
+
 
   return (
-    <>
-    <Header/>
-    <section className="sectionTabla">
-    <h1 className="tituloTabla">Balance de Cuenta - {nombreUsuario}</h1>
-    <h2 style={{ paddingTop: '20px', color: '#f4eeff', marginLeft: '-48%', fontSize: '25px'}} className="tituloSeccion">
-      Mis ahorros totales: <span className="palabraOtroColor">${ahorros}</span>
-    </h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Nombre del gasto</th>
-          <th>Fecha del gasto</th>
-          <th>Precio</th>
-          <th>Categoría del gasto</th>
-        </tr>
-      </thead>
-      <tbody>
-        {Array.isArray(gastos) && gastos.length > 0 ? (
-          gastos.map((gasto) => (
-            <tr key={gasto.id_gasto}>
-              <td>{gasto.nombre_gasto}</td>
-              <td>{new Date(gasto.fecha_gasto).toLocaleDateString()}</td>
-              <td>{gasto.precio}</td>
-              <td>{gasto.categoria_gasto}</td>
+<>
+      <Header/>
+      <section className="sectionTabla">
+        <h1 className="tituloTabla">Balance de Cuenta - {nombreUsuario}</h1>
+        <h2 style={{ paddingTop: '20px', color: '#f4eeff', marginLeft: '-48%', fontSize: '25px'}} className="tituloSeccion">
+          Mis ahorros totales: <span className="palabraOtroColor">${ahorros}</span>
+        </h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre del gasto</th>
+              <th>Fecha del gasto</th>
+              <th>Precio</th>
+              <th>Categoría del gasto</th>
             </tr>
-          ))
-        ) : (
-          <tr>
-            <td colSpan="3">No hay gastos disponibles</td>
-          </tr>
-        )}
-        {/* Fila para la suma total de precios */}
-        <tr>
-          <td colSpan="3"><strong>TOTAL:</strong></td>
-          <td><strong>${sumaTotalPrecios}</strong></td>
-
-        </tr>
-        {/* Fila para los ahorros restantes */}
-        <tr>
-          <td colSpan="3"><strong>Ahorros restantes:</strong></td>
-          <td><strong>${ahorrosRestantes}</strong></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-    <Footer/>
+          </thead>
+          <tbody>
+            {Array.isArray(gastos) && gastos.length > 0 ? (
+              gastos.map((gasto) => (
+                <tr key={gasto.id_gasto}>
+                  <td>{gasto.nombre_gasto}</td>
+                  <td>{new Date(gasto.fecha_gasto).toLocaleDateString()}</td>
+                  <td>${gasto.precio.toFixed(2)}</td>
+                  <td>{gasto.categoria_gasto}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="3">No hay gastos disponibles</td>
+              </tr>
+            )}
+            {/* Fila para la suma total de precios */}
+            <tr>
+              <td colSpan="3"><strong>TOTAL:</strong></td>
+              <td><strong>${sumaTotalPrecios}</strong></td>
+            </tr>
+            {/* Fila para los ahorros restantes */}
+            <tr>
+              <td colSpan="3"><strong>Ahorros restantes:</strong></td>
+              <td><strong>${ahorrosRestantes}</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <Footer/>
     </>
   );
 }
