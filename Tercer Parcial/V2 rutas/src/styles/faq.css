@@ -1,16 +1,23 @@
 .articlePreguntas{
-    background-color: rgb(31, 19, 51);
+    background-color: rgb(36, 25, 53);
     min-height: 450px;
   }
   
   .faq-container {
     max-width: 1000px;
     border-radius: 8px;
-    box-shadow: 0 4px 50px -8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 50px -8px rgba(237, 215, 215, 0.3);
     margin: 45px auto;
     font-family: "Inter", sans-serif;
     color: rgb(244, 238, 255);
     line-height: 1.9;
+  }
+
+  article {
+    position: relative;
+    height: 76vh; 
+    background-color: #5f587f;
+
   }
   
   .faq-container .question-container {
