@@ -63,7 +63,10 @@ function RegistroFinanciero({ correo }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+    if (ahorros === null) {
+      alert("¡Primero ingresa tu saldo inicial!");
+      return;
+    }
     // Obtener la fecha actual
     const fechaActual = new Date();
   
@@ -85,7 +88,12 @@ function RegistroFinanciero({ correo }) {
       alert("La fecha del gasto debe ser dentro de los últimos dos meses.");
       return;
     }
-  
+    
+    if (ahorros === null) {
+      alert("¡Primero ingresa tu saldo inicial!");
+      return;
+    }
+
     // Validar que el precio sea mayor que cero
     if (nuevoGasto.precio <= 0 || isNaN(nuevoGasto.precio)) {
       alert("El precio debe ser mayor que cero y numérico.");
@@ -143,11 +151,18 @@ function RegistroFinanciero({ correo }) {
     ? (ahorros - sumaTotalPrecios).toFixed(2)
     : "0.00";
 
+    const mensajeSaldoInicial = ahorros ? null : (
+      <p>
+        ¡Recuerda ingresar tu saldo inicial para un mejor control financiero!
+      </p>
+    );
+
   return (
     <>
       <Header />
       <section className="sectionRegistro">
         <h1 className="tituloRegistro">Registro Financiero</h1>
+        {mensajeSaldoInicial}
         <form className="formularioRegistro" onSubmit={handleSubmit}>
         <section className="campoFormulario">
           <label>
@@ -201,7 +216,7 @@ function RegistroFinanciero({ correo }) {
             </select>
           </label>
         </section>
-          <button type="submit">Agregar Gasto</button>
+          <button type="submit"disabled={ahorros === null} >Agregar Gasto</button>
         </form>
       </section>
       <Footer />
