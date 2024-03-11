@@ -3,7 +3,7 @@ import '../styles/portada.css';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import SegundaSeccion from '../SegundaSeccion';
-import PreguntasFrecuentes from '../FAQ';
+import PreguntasFrecuentes from './FAQ';
 
 
 
@@ -23,7 +23,7 @@ function Portada() {
             </article>
         </main>
         <SegundaSeccion/>
-        <PreguntasFrecuentes />
+        
         <Footer/>
         </>
     );

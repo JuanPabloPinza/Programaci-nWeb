@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import './styles/index-style.css';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import '../styles/faq.css';
+
 
 const FAQData = [
   {
@@ -30,6 +33,8 @@ function PreguntasFrecuentes() {
   };
 
   return (
+    <div className="faq-container-wrapper">
+    <Header/>
     <article className='articlePreguntas'>
       <h1 style={{ paddingTop: '20px' }} className="tituloSeccion">Preguntas <span className="palabraOtroColor">Frecuentes</span></h1>
       <div className="faq-container">
@@ -47,6 +52,8 @@ function PreguntasFrecuentes() {
         ))}
       </div>
     </article>
+   <Footer/>
+    </div>
   );
 }
 

@@ -21,11 +21,9 @@ function Header() {
           <li>
             <Link  to="/tabla" > Registro Financiero Personal </Link>
           </li>
+          
           <li>
-            <a href="#nuestrosServicios">Nuestros Servicios</a>
-          </li>
-          <li>
-            <a href="#preguntasFrecuentes">Q&A</a>
+            <Link to="/preguntasFrecuentes">Q&A</Link >
           </li>
           {isAuthenticated && (
             <>
