@@ -5,6 +5,8 @@ import "../styles/tabla.css";
 import "../styles/portada.css";
 
 function Tabla({ correo }) {
+  const categoriasDisponibles = ["Vivienda","Alimentacion","Salud","Comida", "Educacion","Transporte", "Entretenimiento", "Otros"]; // Agrega tus categorías aquí
+  const [categorias, setCategorias] = useState(categoriasDisponibles);
   const [gastos, setGastos] = useState([]);
   const [nombreUsuario, setNombreUsuario] = useState("");
   const [ahorros, setAhorros] = useState("");
@@ -96,7 +98,7 @@ function Tabla({ correo }) {
   const [nuevoFechaGasto, setNuevoFechaGasto] = useState("");
   const [nuevoPrecioGasto, setNuevoPrecioGasto] = useState("");
   const [nuevaCategoriaGasto, setNuevaCategoriaGasto] = useState("");
-  
+
   const editarGasto = (gasto) => {
     setEditingGastoId(gasto.id_gasto);
     setNuevoNombreGasto(gasto.nombre_gasto); // Puedes ajustar esto según tus necesidades
@@ -108,6 +110,9 @@ function Tabla({ correo }) {
   const cancelarEdicionGasto = () => {
     setEditingGastoId(null);
     setNuevoNombreGasto("");
+    setNuevoFechaGasto(""); // Limpiar el estado de la fecha
+    setNuevoPrecioGasto(""); // Limpiar el estado del precio
+    setNuevaCategoriaGasto(""); // Limpiar el estado de la categoría  
   };
 
   const guardarEdicionGasto = (id_gasto, nuevoGasto) => {
@@ -138,6 +143,11 @@ function Tabla({ correo }) {
         );
         setEditingGastoId(null);
         setNuevoNombreGasto("");
+        setNuevoFechaGasto("");
+          setNuevoPrecioGasto("");
+          setNuevaCategoriaGasto("");
+          const nuevasCategorias = data.categoriasActualizadas || categoriasDisponibles;
+          setCategorias(nuevasCategorias);
       } else {
         console.error("Error al editar el gasto:", data.message);
       }
