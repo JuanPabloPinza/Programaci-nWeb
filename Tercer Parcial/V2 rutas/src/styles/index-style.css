@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*Estilos para poder sobreescribir todo*/
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    /*background-color: #ADC5D9;
+    font-family: 'Montserrat', sans-serif;*/
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+
+
+
+
+
+/*===========================DIV EFECTO DE OLA======================*/
+
+.corteDeOnda{
+  min-height: 200px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+svg{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/*===========================SEGUNDA SECCIÓN======================*/
+
+.segundaSeccion{
+  background-color: #08060b;
+  padding-bottom: 100px;
+}
+.tituloSeccion{
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 35px;
+  color: #f4eeff;
+}
+
+.palabraOtroColor{
+  color: #a881fc;
+}
+
+.divContenedor {
+  padding: 20px;
+  gap: 20px;
+  display: grid;
+  max-width: 60%;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 340px;
+  margin: 0 auto;
+  border-radius: 45px;
+  background-color: rgb(56, 49, 87);
+  align-items: center;
+  animation: changeColor 5s ease infinite alternate; /* Animación de cambio de color */
+}
+
+
+@keyframes changeColor {
+  0% {
+      background-color: rgb(56, 49, 87); /* Color inicial */
+  }
+  50% {
+      background-color: rgb(92, 67, 134); /* Color intermedio */
+  }
+  100% {
+      background-color: rgb(56, 49, 87); /* Color final */
+  }
+}
+
+.divInformacion{
+  display: grid;
+  max-width: 90%;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+  text-align: center;
+  align-items: baseline;
+}
+.divImagen {
+  display: flex; /* Establece el contenedor como un flex container */
+  justify-content: center; /* Centra horizontalmente el contenido */
+  align-items: center; /* Centra verticalmente el contenido */
+}
+
+.divImagen img {
+  width: 350px;
+  transition: transform 0.3s, filter 0.3s; /* Agrega una transición suave para transformaciones y filtros */
+  animation: moverDivImg 2s infinite alternate; /* Agrega la animación "mover" con una duración de 2 segundos, se repite infinitamente y alterna la dirección */
+}
+
+.divImagen img:hover {
+  transform: scale(1.05) rotate(-5deg) translateX(50px); 
+  filter: saturate(0%) brightness(200%);
+  mix-blend-mode: overlay;
+}
+
+@keyframes moverDivImg {
+  0% {
+    transform: translateX(0);
+  }50%{
+    transform:rotate(-1deg) scale(0.98);
+  }100% {
+    transform: rotate(1deg) scale(0.98);
+  }
+}
+
+.itemContenedor{
+  color: #f4eeff;
+}
+
+.itemContenedor img {
+  width: 100px;
+  filter: grayscale(100%);
+  transition: filter 0.3s, transform 0.3s; /* Agrega transición para el filtro y el tamaño */
+}
+
+.itemContenedor img:hover {
+  filter: none;
+  transform: scale(1.2); /* Aumenta el tamaño de la imagen en un 10% */
+}
+
+
+/* ===================ESTILOS PREGUNTAS FRECUENTES======================*/
+.articlePreguntas{
+  background-color: rgb(31, 19, 51);
+  min-height: 450px;
+}
+
+.faq-container {
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 4px 50px -8px rgba(0, 0, 0, 0.3);
+  margin: 32px auto;
+  font-family: "Inter", sans-serif;
+  color: rgb(244, 238, 255);
+  line-height: 1.9;
+}
+
+.faq-container .question-container {
+  border-bottom: 1px solid #eee;
+}
+
+.faq-container .question {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 16px 24px;
+  cursor: pointer;
+}
+
+
+
+.faq-container .answer {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 8px 0;
+  padding-bottom: 15px;
+}
+
+
+.faq-container .answer-container {
+  padding: 0px 32px;
+  background: rgb(75, 59, 112);
+  max-height: 0;
+  overflow: hidden;
+  transition: all 300ms ease;
+}
+
+.faq-container .question-container.expanded .answer-container {
+  max-height: 500px;
+  padding: 8px 32px;
+}
+
+
+
+/*==============ESTILOS DEL FOOTER==================*/
+footer {
+    background-color: rgb(26, 20, 40);
+    text-align: center;
+    padding: 15px 0;
+}
+
+.imgIconosFooter {
+    width: 30px;
+    /* Ajusta el tamaño según sea necesario */
+    height: 30px;
+}
+
+.redes-sociales {
+    margin-top: 10px;
+}
+
+.redes-sociales a {
+    margin-right: 10px;
+}
+
+/* ===============ESTILO DE SCROLL PERSONALIZADO=================== */
+body::-webkit-scrollbar {
+	width: 7px;
+}
+
+body::-webkit-scrollbar-thumb {
+	background: #b8add2;
+}
