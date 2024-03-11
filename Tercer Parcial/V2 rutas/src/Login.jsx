@@ -64,69 +64,67 @@ const Login = ({ onLogin }) => {
 
 
     const handleRegistro = () => {
-        
-            
-        // Validaciones de registro
-        if (!nombre || !numeroTelefono || !correoRegistro || !contraseñaRegistro) {
+      // Validaciones de registro
+      if (!nombre || !numeroTelefono || !correoRegistro || !contraseñaRegistro) {
           alert('Todos los campos son obligatorios para registrarse');
           return;
-        }
-    
-        // Validación de formato de correo electrónico
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(correoRegistro)) {
+      }
+  
+      // Validación de formato de correo electrónico
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(correoRegistro)) {
           alert('Ingrese un correo electrónico válido');
           return;
-        }
-    
-        // Validación de número de teléfono (solo números)
-        const phoneRegex = /^\d{10}$/;
-        if (!phoneRegex.test(numeroTelefono)) {
+      }
+  
+      // Validación de número de teléfono (solo números)
+      const phoneRegex = /^\d{10}$/;
+      if (!phoneRegex.test(numeroTelefono)) {
           alert('Ingrese un número de teléfono válido de 10 cifras');
           return;
-        }
-    
-        // Validación de nombre (solo letras y espacios)
-        const nameRegex = /^[a-zA-Z\s]+$/;
-        if (!nameRegex.test(nombre)) {
+      }
+  
+      // Validación de nombre (solo letras y espacios)
+      const nameRegex = /^[a-zA-Z\s]+$/;
+      if (!nameRegex.test(nombre)) {
           alert('Ingrese un nombre válido (solo letras y espacios)');
           return;
-        }
-
-        console.log('Datos ingresados en el formulario de registro:');
-        console.log('Nombre:', nombre);
-        console.log('Número de teléfono:', numeroTelefono);
-        console.log('Correo:', correoRegistro);
-        console.log('Contraseña:', contraseñaRegistro);
-    
-// Lógica de registro aquí
-fetch('http://localhost:3001/registro', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      nombre: nombre,
-      numeroTelefono: numeroTelefono,
-      correoRegistro: correoRegistro,
-      contraseñaRegistro: contraseñaRegistro,
-    }),
-  })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Respuesta de la base de datos en registro:', data);
-      if (data.success) {
-        alert('Registro exitoso. ¡Redirigiendo a la página principal!');
-        onLogin();
-      } else {
-        alert('Error en el registro: ' + data.message);
       }
-    })
-    .catch(error => {
-      console.error('Error al registrar: ', error);
-      alert('Error al registrar');
-    });
-};
+  
+      console.log('Datos ingresados en el formulario de registro:');
+      console.log('Nombre:', nombre);
+      console.log('Número de teléfono:', numeroTelefono);
+      console.log('Correo:', correoRegistro);
+      console.log('Contraseña:', contraseñaRegistro);
+  
+      // Lógica de registro aquí
+      fetch('http://localhost:3001/registro', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              nombre: nombre,
+              numeroTelefono: numeroTelefono,
+              correoRegistro: correoRegistro,
+              contraseñaRegistro: contraseñaRegistro,
+          }),
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log('Respuesta de la base de datos en registro:', data);
+          if (data.success) {
+              alert('Registro exitoso. ¡Redirigiendo a la página principal!');
+              onLogin(correoRegistro);
+          } else {
+              alert('Error en el registro: ' + data.message);
+          }
+      })
+      .catch(error => {
+          console.error('Error al registrar: ', error);
+          alert('Error al registrar');
+      });
+  };
 
 
 

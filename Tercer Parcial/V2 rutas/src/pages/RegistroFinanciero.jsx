@@ -111,7 +111,12 @@ function RegistroFinanciero({ correo }) {
       console.log("Respuesta de la base de datos al insertar el gasto:", data);
       if (data.success) {
         // Actualizar la lista de gastos si la inserción fue exitosa
-        setGastos(prevGastos => [...prevGastos, nuevoGasto]);
+        setGastos(prevGastos => [...prevGastos, {
+          nombre: nuevoGasto.nombre,
+          fecha: nuevoGasto.fecha,
+          categoria: nuevoGasto.categoria,
+          precio: nuevoGasto.precio
+        }]);
         // Limpiar el estado del nuevo gasto
         setNuevoGasto({
           nombre: '',
@@ -130,8 +135,8 @@ function RegistroFinanciero({ correo }) {
 
   // Cálculo de la suma total de precios
   const sumaTotalPrecios = gastos && Array.isArray(gastos) && gastos.length > 0
-    ? gastos.reduce((total, gasto) => total + gasto.precio, 0).toFixed(2)
-    : "0.00";
+  ? gastos.reduce((total, gasto) => total + parseFloat(gasto.precio), 0).toFixed(2)
+  : "0.00";
 
   // Cálculo de los ahorros restantes
   const ahorrosRestantes = ahorros
