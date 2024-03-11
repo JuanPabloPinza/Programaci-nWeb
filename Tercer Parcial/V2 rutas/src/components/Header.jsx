@@ -22,9 +22,8 @@ function Header() {
             <Link  to="/tabla" > Balance de Cuenta </Link>
           </li>
           <li>
-            <Link  to="/registroFinanciero" > Regristro Financiero </Link>
+            <Link  to="/registroFinanciero" >Registrar Gasto</Link>
           </li>
-          
           <li>
             <Link to="/preguntasFrecuentes">Q&A</Link >
           </li>
