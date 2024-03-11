@@ -8,9 +8,10 @@ function Tabla({ correo }) {
   const [gastos, setGastos] = useState([]);
   const [nombreUsuario, setNombreUsuario] = useState("");
   const [ahorros, setAhorros] = useState("");
-  const [editingGasto, setEditingGasto] = useState(null);
+  const [editingGastoId, setEditingGastoId] = useState(null);
   const [editandoAhorros, setEditandoAhorros] = useState(false);
   const [nuevosAhorros, setNuevosAhorros] = useState("");
+  const [nuevoNombreGasto, setNuevoNombreGasto] = useState("");
 
   useEffect(() => {
     fetch(`http://localhost:3001/getNombre?correo=${correo}`)
@@ -91,11 +92,32 @@ function Tabla({ correo }) {
     setEditandoAhorros(false);
   };
 
+
+  const [nuevoFechaGasto, setNuevoFechaGasto] = useState("");
+  const [nuevoPrecioGasto, setNuevoPrecioGasto] = useState("");
+  const [nuevaCategoriaGasto, setNuevaCategoriaGasto] = useState("");
+  
   const editarGasto = (gasto) => {
-    setEditingGasto(gasto);
+    setEditingGastoId(gasto.id_gasto);
+    setNuevoNombreGasto(gasto.nombre_gasto); // Puedes ajustar esto según tus necesidades
+    setNuevoFechaGasto(gasto.fecha_gasto);
+    setNuevoPrecioGasto(gasto.precio);
+    setNuevaCategoriaGasto(gasto.categoria_gasto);
+  };
+
+  const cancelarEdicionGasto = () => {
+    setEditingGastoId(null);
+    setNuevoNombreGasto("");
   };
 
   const guardarEdicionGasto = (id_gasto, nuevoGasto) => {
+    const {
+      nombre_gasto,
+      fecha_gasto,
+      categoria_gasto,
+      precio,
+    } = nuevoGasto;
+
     fetch("http://localhost:3001/editarGasto", {
       method: "POST",
       headers: {
@@ -103,26 +125,27 @@ function Tabla({ correo }) {
       },
       body: JSON.stringify({
         id_gasto: id_gasto,
-        nuevoGasto: nuevoGasto,
+        nuevoGasto: { nombre_gasto, fecha_gasto, categoria_gasto, precio },
       }),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          setGastos(
-            gastos.map((g) =>
-              g.id_gasto === id_gasto ? data.gastoActualizado : g
-            )
-          );
-          setEditingGasto(null);
-        } else {
-          console.error("Error al editar el gasto:", data.message);
-        }
-      })
-      .catch((error) => {
-        console.error("Error al editar el gasto:", error);
-      });
-  };
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        setGastos(
+          gastos.map((g) =>
+            g.id_gasto === id_gasto ? data.gastoActualizado : g
+          )
+        );
+        setEditingGastoId(null);
+        setNuevoNombreGasto("");
+      } else {
+        console.error("Error al editar el gasto:", data.message);
+      }
+    })
+    .catch((error) => {
+      console.error("Error al editar el gasto:", error);
+    });
+};
 
   const actualizarAhorros = (nuevosAhorros) => {
     fetch("http://localhost:3001/editarAhorros", {
@@ -158,7 +181,7 @@ function Tabla({ correo }) {
     <>
       <Header />
       <section className="sectionTablaEncabezado">
-      <h1 className="tituloTabla">Balance de Cuenta - {nombreUsuario}</h1>
+        <h1 className="tituloTabla">Balance de Cuenta - {nombreUsuario}</h1>
         <h2
           style={{
             paddingTop: "20px",
@@ -173,20 +196,29 @@ function Tabla({ correo }) {
           {editandoAhorros ? (
             <div>
               <input
+                className="inputEditarAhorros"
                 type="number"
                 value={nuevosAhorros}
                 onChange={(e) => setNuevosAhorros(e.target.value)}
               />
-              <button className='botonEditar' onClick={guardarAhorrosEditados}>Guardar</button>
-              <button  className='botonEditar' onClick={cancelarEdicionAhorros}>Cancelar</button>
+              <button className="botonEditar" onClick={guardarAhorrosEditados}>
+                Guardar
+              </button>
+              <button
+                className="botonEditar"
+                onClick={cancelarEdicionAhorros}
+              >
+                Cancelar
+              </button>
             </div>
           ) : (
-            <button  className='botonEditar' onClick={activarEdicionAhorros}>Editar</button>
+            <button className="botonEditar" onClick={activarEdicionAhorros}>
+              Editar
+            </button>
           )}
         </h2>
-        </section>
+      </section>
       <section className="sectionTabla">
-
         <table>
           <thead>
             <tr>
@@ -201,11 +233,75 @@ function Tabla({ correo }) {
             {Array.isArray(gastos) && gastos.length > 0 ? (
               gastos.map((gasto) => (
                 <tr key={gasto.id_gasto}>
-                  <td>{gasto.nombre_gasto}</td>
-                  <td>{new Date(gasto.fecha_gasto).toLocaleDateString()}</td>
-                  <td>${gasto.precio.toFixed(2)}</td>
-                  <td>{gasto.categoria_gasto}</td>
                   <td>
+                    {editingGastoId === gasto.id_gasto ? (
+                      <input
+                        type="text"
+                        value={nuevoNombreGasto}
+                        onChange={(e) => setNuevoNombreGasto(e.target.value)}
+                      />
+                    ) : (
+                      gasto.nombre_gasto
+                    )}
+                  </td>
+                  <td>
+                    {editingGastoId === gasto.id_gasto ? (
+                      <input
+                        type="date"
+                        value={nuevoFechaGasto}
+                        onChange={(e) => setNuevoFechaGasto(e.target.value)}
+                      />
+                    ) : (
+                      new Date(gasto.fecha_gasto).toLocaleDateString()
+                    )}
+                  </td>
+                  <td>
+                    {editingGastoId === gasto.id_gasto ? (
+                      <input
+                        type="number"
+                        value={nuevoPrecioGasto}
+                        onChange={(e) => setNuevoPrecioGasto(e.target.value)}
+                      />
+                    ) : (
+                      `$${gasto.precio.toFixed(2)}`
+                    )}
+                  </td>
+                  <td>
+                    {editingGastoId === gasto.id_gasto ? (
+                      <input
+                        type="text"
+                        value={nuevaCategoriaGasto}
+                        onChange={(e) =>
+                          setNuevaCategoriaGasto(e.target.value)
+                        }
+                      />
+                    ) : (
+                      gasto.categoria_gasto
+                    )}
+                  </td>
+                  <td>
+                    {editingGastoId === gasto.id_gasto ? (
+                      <button
+                        className="botonGuardar"
+                        onClick={() =>
+                          guardarEdicionGasto(gasto.id_gasto, {
+                            nombre_gasto: nuevoNombreGasto,
+                            fecha_gasto: nuevoFechaGasto,
+                            precio: parseFloat(nuevoPrecioGasto),
+                            categoria_gasto: nuevaCategoriaGasto,
+                          })
+                        }
+                      >
+                        Guardar
+                      </button>
+                    ) : (
+                      <button
+                        className="botonEditar"
+                        onClick={() => editarGasto(gasto)}
+                      >
+                        Editar
+                      </button>
+                    )}
                     <button
                       className="botonEliminar"
                       onClick={() => eliminarGasto(gasto.id_gasto)}
@@ -233,8 +329,7 @@ function Tabla({ correo }) {
                 </strong>
               </td>
               <td colSpan="2">
-                <strong>Ahorros restantes:</strong> $
-                {ahorrosRestantes}
+                <strong>Ahorros restantes:</strong> ${ahorrosRestantes || "0.00"}
               </td>
             </tr>
           </tbody>
@@ -243,6 +338,6 @@ function Tabla({ correo }) {
       <Footer />
     </>
   );
-}
+};
 
 export default Tabla;

@@ -44,6 +44,7 @@ tr:hover {
 }
 .tituloSeccion{
   margin: 0;
+  padding: 10px;
 }
 
 .sectionTabla {
@@ -69,7 +70,25 @@ tr:hover {
 }
 
 .botonEliminar{
+  
   color: black;
+}
+
+.inputEditarAhorros{
+  width: 100%;
+  padding: 8px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  width: 10%;
+  box-sizing: border-box;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  text-align: center;
+  color: black;
+ 
+
 }
 
 .botonEditar{

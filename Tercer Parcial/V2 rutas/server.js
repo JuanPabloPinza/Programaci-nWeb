@@ -147,6 +147,42 @@ app.post("/insertarGasto", (req, res) => {
   });
 });
 
+app.post("/editarGasto", (req, res) => {
+  const { id_gasto, nuevoGasto } = req.body;
+  const {
+    nombre_gasto,
+    fecha_gasto,
+    categoria_gasto,
+    precio,
+  } = nuevoGasto;
+
+  const updateGastoSql = `
+    UPDATE gastos 
+    SET nombre_gasto = ?, fecha_gasto = ?, categoria_gasto = ?, precio = ? 
+    WHERE id_gasto = ?`;
+
+  db.query(
+    updateGastoSql,
+    [nombre_gasto, fecha_gasto, categoria_gasto, precio, id_gasto],
+    (err, result) => {
+      if (err) {
+        console.error("Error al editar el gasto:", err);
+        res.status(500).json({
+          success: false,
+          message: "Error interno del servidor",
+        });
+      } else {
+        res.json({
+          success: true,
+          message: "Gasto editado exitosamente",
+          gastoActualizado: nuevoGasto,
+        });
+      }
+    }
+  );
+});
+
+
 app.post("/borrarGasto", (req, res) => {
   const { id_gasto } = req.body;
 
