@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route,  Routes, Navigate } from 'react-router-
 import Login from './Login';
 import Portada from './pages/Portada';
 import Tabla from './pages/Tabla';
+import RegistroFinanciero from './pages/RegistroFinanciero';
 import FAQ from './pages/FAQ';
 
 
@@ -99,6 +100,7 @@ function App() {
           <Route path="/" element={ isAuthenticated ? (<Portada />  ) : (<Navigate to="/login" /> ) }/>
           <Route path="/tabla"  element={ isAuthenticated ? ( <Tabla correo={correo} /> ) : ( <Navigate to="/login" /> ) } />
           <Route path="/preguntasFrecuentes" element={ isAuthenticated ? ( <FAQ correo={correo}/> ) : ( <Navigate to="/login" /> ) } />
+          <Route path="/registroFinanciero" element={ isAuthenticated ? ( <RegistroFinanciero correo={correo}/> ) : ( <Navigate to="/login" /> ) } />
 
         </Routes>
       </AuthContext.Provider>

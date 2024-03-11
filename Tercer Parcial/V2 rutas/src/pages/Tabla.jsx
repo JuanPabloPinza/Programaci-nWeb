@@ -65,7 +65,7 @@ const ahorrosRestantes = ahorros - sumaTotalPrecios;
     <>
     <Header/>
     <section className="sectionTabla">
-    <h1 className="tituloTabla">MIS GASTOS PERSONALES - {nombreUsuario}</h1>
+    <h1 className="tituloTabla">Balance de Cuenta - {nombreUsuario}</h1>
     <h2 style={{ paddingTop: '20px', color: '#f4eeff', marginLeft: '-48%', fontSize: '25px'}} className="tituloSeccion">
       Mis ahorros totales: <span className="palabraOtroColor">${ahorros}</span>
     </h2>

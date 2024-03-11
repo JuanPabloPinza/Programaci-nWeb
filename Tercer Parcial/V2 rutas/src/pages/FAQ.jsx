@@ -23,6 +23,25 @@ const FAQData = [
       "Para abrir una cuenta en ExpenseMaster simplemente tienes que registrarte y llenar el formulario con tus datos personales",
     ],
   },
+  {
+    question: "¿Cómo puedo categorizar mis gastos en ExpenseMaster?",
+    answer: [
+      "Puedes categorizar tus gastos durante el proceso de registro. ExpenseMaster también proporciona opciones para editar y actualizar las categorías más tarde.",
+    ],
+  },
+  {
+    question: "¿Puedo exportar mis datos de gastos en ExpenseMaster?",
+    answer: [
+      "Sí, ExpenseMaster ofrece la funcionalidad de exportar tus datos de gastos en formatos comunes como CSV o Excel.",
+    ],
+  },
+  {
+    question: "¿ExpenseMaster tiene una aplicación móvil?",
+    answer: [
+      "Sí, ese es plan a futuro. Por ahora, ExpenseMaster es una aplicación web que puedes utilizar en tu navegador de preferencia.",
+    ],
+  },
+
 ];
 
 function PreguntasFrecuentes() {
@@ -54,7 +73,7 @@ function PreguntasFrecuentes() {
     </article>
    <Footer/>
     </div>
-  );
+  );  
 }
 
 

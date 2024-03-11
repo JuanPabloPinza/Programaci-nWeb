@@ -19,7 +19,10 @@ function Header() {
             <a target="_blank" href="https://github.com/JuanPabloPinza/ProgramacionWeb"> Sobre Nosotros</a>
           </li>
           <li>
-            <Link  to="/tabla" > Registro Financiero Personal </Link>
+            <Link  to="/tabla" > Balance de Cuenta </Link>
+          </li>
+          <li>
+            <Link  to="/registroFinanciero" > Regristro Financiero </Link>
           </li>
           
           <li>

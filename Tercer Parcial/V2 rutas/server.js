@@ -104,6 +104,52 @@ app.post('/gastos', (req, res) => {
 });
 
 
+
+app.post('/nuevoGasto', (req, res) => {
+  
+  const { nombreGasto, fechaGasto, precio, categoria, correo } = req.body;
+
+  if (!nombreGasto) {
+    return res.status(400).json({ success: false, message: 'El nombre del gasto no puede ser nulo' });
+  }
+  // Obtener el ID de usuario asociado al correo
+  const userIdSql = 'SELECT id_usuario, ahorros FROM usuarios WHERE correo = ?';
+  db.query(userIdSql, [correo], (errUserId, resultsUserId) => {
+    if (errUserId) {
+      console.error('Error al obtener el ID de usuario: ', errUserId);
+      return res.status(500).json({ success: false, message: 'Error interno del servidor al obtener el ID de usuario' });
+    }
+
+    if (resultsUserId.length > 0) {
+      const userId = resultsUserId[0].id_usuario;
+      const ahorrosUsuario = resultsUserId[0].ahorros;
+
+      // Insertar el nuevo gasto
+      const insertGastoSql = 'INSERT INTO gastos (id_usuario, nombre_gasto, fecha_gasto, precio, categoria_gasto) VALUES (?, ?, ?, ?, ?)';
+      db.query(insertGastoSql, [userId, nombreGasto, fechaGasto, precio, categoria], (errInsert, resultsInsert) => {
+        if (errInsert) {
+          console.error('Error al insertar el nuevo gasto: ', errInsert);
+          return res.status(500).json({ success: false, message: 'Error interno del servidor al insertar el nuevo gasto' });
+        }
+
+        // Actualizar los ahorros del usuario restando el precio del nuevo gasto
+        const nuevosAhorros = ahorrosUsuario - precio;
+        const updateAhorrosSql = 'UPDATE usuarios SET ahorros = ? WHERE id_usuario = ?';
+        db.query(updateAhorrosSql, [nuevosAhorros, userId], (errUpdateAhorros) => {
+          if (errUpdateAhorros) {
+            console.error('Error al actualizar los ahorros del usuario: ', errUpdateAhorros);
+            return res.status(500).json({ success: false, message: 'Error interno del servidor al actualizar los ahorros del usuario' });
+          }
+
+          return res.json({ success: true, message: 'Gasto registrado exitosamente' });
+        });
+      });
+    } else {
+      return res.json({ success: false, message: 'Usuario no encontrado' });
+    }
+  });
+});
+
 app.get('/getNombre', (req, res) => {
   console.log('Inicio de la solicitud de nombre');
   const { correo } = req.query;
