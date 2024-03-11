@@ -140,6 +140,7 @@ function RegistroFinanciero({ correo }) {
       <section className="sectionRegistro">
         <h1 className="tituloRegistro">Registro Financiero</h1>
         <form className="formularioRegistro" onSubmit={handleSubmit}>
+        <section className="campoFormulario">
           <label>
             Nombre del gasto:
             <input
@@ -149,6 +150,8 @@ function RegistroFinanciero({ correo }) {
               onChange={handleInputChange}
             />
           </label>
+          </section>
+          <section className="campoFormulario">
           <label>
             Fecha del gasto:
             <input
@@ -158,6 +161,8 @@ function RegistroFinanciero({ correo }) {
               onChange={handleInputChange}
             />
           </label>
+          </section>
+        <section className="campoFormulario">
           <label>
             Precio:
             <input
@@ -167,6 +172,8 @@ function RegistroFinanciero({ correo }) {
               onChange={handleInputChange}
             />
           </label>
+            </section>
+            <section className="campoFormulario">
           <label>
             Categoría del gasto:
             <select
@@ -184,6 +191,7 @@ function RegistroFinanciero({ correo }) {
               {/* Agrega las demás categorías */}
             </select>
           </label>
+        </section>
           <button type="submit">Agregar Gasto</button>
         </form>
       </section>
