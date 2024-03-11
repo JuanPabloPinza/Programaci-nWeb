@@ -8,8 +8,29 @@ import '../styles/portada.css'
 
 function Tabla({correo}) {
   const [gastos, setGastos] = useState([]);
-    console.log("Correo:", correo);
+  const [nombreUsuario, setNombreUsuario] = useState('');
+  console.log("Correo:", correo);
+  console.log("Nombre Usuario:", nombreUsuario);
+
   useEffect(() => {
+    
+    // Realizar la solicitud para obtener el nombre del usuario
+    fetch(`http://localhost:3001/getNombre?correo=${correo}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          setNombreUsuario(data.nombre);
+        } else {
+          console.error('Error al obtener el nombre del usuario:', data.message);
+        }
+      })
+      .catch(error => {
+        console.error('Error en la solicitud para obtener el nombre del usuario:', error);
+      });
+
+    // Realizar la solicitud para obtener los gastos
+    
+    
     fetch("http://localhost:3001/gastos", {
       method: "POST",
       headers: {
@@ -28,13 +49,13 @@ function Tabla({correo}) {
       .catch((error) => {
         console.error("Error al obtener gastos", error);
       });
-  }, []);
+  }, [correo]);
 
   return (
     <>
     <Header/>
     <section className="sectionTabla">
-      <h1 className="tituloTabla">MIS GASTOS PERSONALES</h1>
+      <h1 className="tituloTabla">MIS GASTOS PERSONALES - {nombreUsuario}</h1>
     <table>
       <thead>
         <tr>
