@@ -216,7 +216,8 @@ function RegistroFinanciero({ correo }) {
             </select>
           </label>
         </section>
-          <button type="submit"disabled={ahorros === null} >Agregar Gasto</button>
+        <button type="submit" disabled={ahorros === null || parseFloat(ahorros) === 0}>Agregar Gasto</button>
+
         </form>
       </section>
       <Footer />
